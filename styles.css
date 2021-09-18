@@ -8,8 +8,17 @@ main .container {
   background: white;
 }
 
+/* Custom navbar and footer colors for CalcuSplit and CalcuRun */
+nav#calcurun, footer#calcurun {
+  background-color: #7b2021;
+}
+
+nav#calcusplit, footer#calcusplit {
+  background-color: #398a41
+}
+
 .footer .bi, footer span {
-  color: #9b9d9e;
+  color: #cccccc;
   justify-content: center;
 }
 
