@@ -29,6 +29,16 @@ a.btn-calcurun:hover {
   background-color: rgba(132, 32, 34, 0.80);
 }
 
+.btn-calcusplit {
+  background-color: #398a41;
+  color: white;
+}
+
+a.btn-calcusplit:hover {
+  color: white;
+  background-color: rgba(57, 138, 65, 0.80);
+}
+
 /* Custom navbar and footer colors for CalcuSplit and CalcuRun */
 nav#calcurun, footer#calcurun {
   background-color: #7b2021;
@@ -53,6 +63,9 @@ img.icon {
   max-height: 100px;
   width: auto;
   border-radius: 10px;
+  border-width: 1px;
+  border-color: white;
+  border-style: solid;
 }
 
 img.screenshot {
@@ -74,5 +87,24 @@ img.screenshot {
 
 .calcurun-row {
   background-color: rgba(132, 32, 34, 0.80);
+  color: white;
+}
+
+.bi.h1.calcusplit {
+  color: white;
+  background-color: #398a41;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.bi.h1.calcusplit.premium{
+  background-color: white;
+  color: #398a41;
+}
+
+.calcusplit-row {
+  background-color: rgba(57, 138, 65, 0.80);
   color: white;
 }
