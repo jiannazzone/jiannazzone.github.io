@@ -9,8 +9,6 @@ main .container {
 }
 
 .row {
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -20,9 +18,15 @@ main .container {
   margin-bottom: 5px;
 }
 
+/* Custom Button stylings for CalcuSplit and CalcuRun */
 .btn-calcurun {
   background-color: #7b2021;
   color: white;
+}
+
+a.btn-calcurun:hover {
+  color: white;
+  background-color: rgba(132, 32, 34, 0.80);
 }
 
 /* Custom navbar and footer colors for CalcuSplit and CalcuRun */
@@ -44,11 +48,11 @@ footer div {
   align-items: center;
 }
 
-/* Images */
-
+/* Images and icons*/
 img.icon {
   max-height: 100px;
   width: auto;
+  border-radius: 10px;
 }
 
 img.screenshot {
@@ -59,7 +63,7 @@ img.screenshot {
   border-radius: 10px;
 }
 
-.bi.h1 {
+.bi.h1.calcurun {
   color: white;
   background-color: #7b2021;
   padding: 5px;
