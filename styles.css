@@ -8,17 +8,12 @@ main .container-lg {
   background: white;
 }
 
-.row {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
+/* Custom Button stylings for CalcuSplit and CalcuRun */
 .btn {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-/* Custom Button stylings for CalcuSplit and CalcuRun */
 .btn-calcurun {
   background-color: #7b2021;
   color: white;
@@ -59,9 +54,16 @@ footer div {
 }
 
 /* Images and icons*/
+img {
+  padding-top:5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+
 img.icon {
   max-height: 100px;
   width: auto;
+  padding: 0px;
   border-radius: 10px;
   border-width: 1px;
   border-color: white;
@@ -69,39 +71,43 @@ img.icon {
 }
 
 img.screenshot {
-  max-height: 500px;
-  width: auto;
+  /* max-height: 500px; */
+  /* width: auto; */
   filter: drop-shadow(5px 5px 5px black);
   padding-bottom: 5px;
   border-radius: 10px;
 }
 
-.bi.h1.calcurun {
+.bi.h1 {
   color: white;
-  background-color: #7b2021;
-  padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 5px;
   border-radius: 10px;
 }
 
-.calcurun-row {
-  background-color: rgba(132, 32, 34, 0.80);
-  color: white;
+.bi.h1.calcurun {
+  background-color: #7b2021;
 }
 
 .bi.h1.calcusplit {
-  color: white;
   background-color: #398a41;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 10px;
 }
 
 .bi.h1.calcusplit.premium{
   background-color: white;
   color: #398a41;
+}
+
+/* Bootstrap Rows */
+.row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.calcurun-row {
+  background-color: rgba(132, 32, 34, 0.80);
+  color: white;
 }
 
 .calcusplit-row {
