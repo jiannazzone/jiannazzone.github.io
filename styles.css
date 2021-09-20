@@ -34,6 +34,15 @@ a.btn-calcusplit:hover {
   background-color: rgba(57, 138, 65, 0.80);
 }
 
+a.btn-dark:hover {
+  color: white;
+  background-color: rgba(33, 37, 41, 0.80);
+}
+
+a.btn-light:hover {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
 /* Custom navbar and footer colors for CalcuSplit and CalcuRun */
 nav#calcurun, footer#calcurun {
   background-color: #7b2021;
@@ -115,6 +124,6 @@ img.screenshot {
 }
 
 .home-row {
-  background-color: #212529;
+  background-color: rgba(33, 37, 41, 0.80);
   color: white;
 }
