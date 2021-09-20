@@ -62,7 +62,6 @@ img {
 
 img.icon {
   max-height: 100px;
-  width: auto;
   padding: 0px;
   border-radius: 10px;
   border-width: 1px;
@@ -71,11 +70,11 @@ img.icon {
 }
 
 img.screenshot {
-  /* max-height: 500px; */
-  /* width: auto; */
+  border-radius: 3.5%/2.3%;
   filter: drop-shadow(5px 5px 5px black);
-  padding-bottom: 5px;
-  border-radius: 10px;
+  max-height: 594.5px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
 }
 
 .bi.h1 {
@@ -112,5 +111,10 @@ img.screenshot {
 
 .calcusplit-row {
   background-color: rgba(57, 138, 65, 0.80);
+  color: white;
+}
+
+.home-row {
+  background-color: #212529;
   color: white;
 }
