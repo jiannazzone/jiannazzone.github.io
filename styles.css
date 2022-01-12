@@ -8,7 +8,7 @@ main .container-lg {
   background: white;
 }
 
-/* Custom Button stylings for CalcuSplit and CalcuRun */
+/* Custom Button stylings for apps */
 .btn {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -34,6 +34,16 @@ a.btn-calcusplit:hover {
   background-color: rgba(57, 138, 65, 0.80);
 }
 
+.btn-lettercode {
+  color: white;
+  background-color: #434343
+}
+
+a.btn-lettercode:hover {
+  color: white;
+  background-color: rgba(67, 67, 67, 0.80);
+}
+
 a.btn-dark:hover {
   color: white;
   background-color: rgba(33, 37, 41, 0.80);
@@ -43,13 +53,17 @@ a.btn-light:hover {
   background-color: rgba(255, 255, 255, 0.80);
 }
 
-/* Custom navbar and footer colors for CalcuSplit and CalcuRun */
+/* Custom navbar and footer colors for apps */
 nav#calcurun, footer#calcurun {
   background-color: #7b2021;
 }
 
 nav#calcusplit, footer#calcusplit {
   background-color: #398a41
+}
+
+nav#lettercode, footer#lettercode {
+  background-color: #434343
 }
 
 .footer .bi, footer span {
@@ -110,6 +124,10 @@ img.screenshot {
   color: #398a41;
 }
 
+.bi.h1.lettercode {
+  background-color: #434343;
+}
+
 /* Bootstrap Rows */
 .row {
   padding-top: 20px;
@@ -123,6 +141,11 @@ img.screenshot {
 
 .calcusplit-row {
   background-color: rgba(57, 138, 65, 0.80);
+  color: white;
+}
+
+.lettercode-row {
+  background-color: rgba(67, 67, 67, 0.80);
   color: white;
 }
 
