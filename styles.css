@@ -8,6 +8,10 @@ main .container-lg {
   background: white;
 }
 
+/* html, body {
+  min-height: 100vh;
+} */
+
 /* Custom Button stylings for apps */
 .btn {
   margin-top: 5px;
