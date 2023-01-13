@@ -1,154 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Just Playing Around</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans">
+    </head>
+    <body>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5P06E14W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        <div class="grid-container">
 
-    gtag('config', 'G-FF5P06E14W');
-  </script>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#212529">
+            <div class="header">
+                Adam Iannazzone
+            </div>
 
-  <!-- Social metadata -->
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://apps.iannaz.zone/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Adam Iannazzone">
-  <meta property="og:description" content="iOS Development and open-source projects.">
-  <meta property="og:image" content="https://apps.iannaz.zone/assets/social/Adam_Normal.JPG">
+            <div class="menu">
+                <a href="lettercode.html">
+                    <div class="menu-item" id="lettercode-menu">LetterCode</div>
+                </a>
+                <a href="calcusplit.html">
+                    <div class="menu-item" id="calcusplit-menu">CalcuSplit</div>
+                </a>
+                <a href="calcurun.html">
+                    <div class="menu-item" id="calcurun-menu">CalcuRun</div>
+                </a>
+                <div class="menu-item" id="github-menu">Github</div>
+            </div>
 
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="apps.iannaz.zone">
-  <meta property="twitter:url" content="https://apps.iannaz.zone/">
-  <meta name="twitter:title" content="Adam Iannazzone">
-  <meta name="twitter:description" content="iOS Development and open-source projects.">
-  <meta name="twitter:image" content="https://apps.iannaz.zone/assets/social/Adam_Normal.JPG">
+            <div class="menu-image-container">
+                <img class="menu-image" id="lettercode-image" src="assets/lettercode/icon.png" alt="">
+                <img class="menu-image" id="calcusplit-image" src="assets/calcusplit/icon.png" alt="">
+                <img class="menu-image" id="calcurun-image" src="assets/calcurun/icon.png" alt="">
+                <img class="menu-image" id="github-image" src="assets/social/Adam_Run.JPG" alt="">
+            </div>
 
-  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
-      
-
-  <title>Adam Iannazzone</title>
-
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html" aria-current="page"><i class="bi bi-house-fill"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="calcurun.html">CalcuRun</a>
-          <a class="nav-link" href="calcusplit.html">CalcuSplit</a>
-          <a class="nav-link" href="lettercode.html">LetterCode</a>
-          <a class="nav-link" href="https://github.com/jiannazzone" target="_blank" rel="noopener noreferrer">Open-Source Projects <i class="bi bi-arrow-up-right-square"></i></a>
+            </div>
         </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="mailto:calcuapps@iannaz.zone?subject=CalcuApps">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <main class="fill">
-    <div class="container-lg">
-
-      <div class="row home-row">
-        <div class="col">
-          <h1>Adam Iannazzone</h1>
-        </div>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="assets/social/Adam_Normal.JPG" class="img-fluid" id="selfie" alt="Picture of Adam Iannazzone in a park">
-        </div>
-
-        <div class="col-md-8">
-          <h4>Hello World!</h4>
-
-          <p>My name is Adam Iannazzone, and I am an Engineering and
-          Computer Science teacher in the beautiful Hudson Valley. While I
-          did not formally study CS (except for one ill-fate MATLAB class),
-          I picked it up through professional development, online tutorials,
-          and chats with my friends and colleagues.</p>
-
-          <p>In an effort to learn more about programming and technology,
-          as well as show my students that you never stop growing, I'm always
-          looking for a new project or challenge. For example, I made the website
-          from scratch using Bootstrap – an important project in my Web Design course!</p>
-        </div>
-      </div>
-
-      <div class="row align-items-center home-row">
-        <div class="col-md-8">
-          <h4>iOS Development</h4>
-          <p>My latest challenge has been developing and releasing two iOS apps,
-          written entirely in Swift. Geared towards runners, they are apps that
-          I always wished that I could find on the App Store, so why not make
-          them myself? If you're a runner or have friends who are, please
-          check them out! Both apps are free to use.</p>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="calcurun.html" class="btn btn-light" style="width:40%">CalcuRun</a><br>
-          <a href="calcusplit.html" class="btn btn-light" style="width:40%">CalcuSplit</a><br>
-          <a href="lettercode.html" class="btn btn-light" style="width:40%">LetterCode</a>
-        </div>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="assets/photo-example.jpg" class="img-fluid" alt="Picture of church in the mountains">
-        </div>
-
-        <div class="col-md-4">
-          <h4>Photography</h4>
-          <p>When I'm not running, teaching, or coding, I like to get out into
-          the woods and take photos. Traditionally, I've focused on landscapes
-          and cityscapes, but I've been broadening my horizons to include
-          people, macros, and more abstract work. You can find me on Instagram
-          and at my portfolio website.</p>
-        </div>
-
-        <div class="col-md-4 text-center">
-          <a href="https://instagram.com/jiannazzone3/" class="btn btn-dark" style="width:40%" target="_blank" rel="noopener noreferrer">Instagram</a><br>
-          <a href="https://photos.iannaz.zone/" class="btn btn-dark" style="width:40%" target="_blank" rel="noopener noreferrer">Portfolio</a>
-        </div>
-
-      </div>
-
-    </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="container-fluid footer bg-dark mt-auto d-flex flex-row">
-      <div class="container d-flex flex-row">
-        <span class="justify-content-start">Joseph Adam Iannazzone</span>
-        <span class="d-flex justify-content-end">
-          <a class="nav-link" role="img" aria-label="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/jiannazzone"><i class="bi bi-github"></i></a>
-          <a class="nav-link" role="img" aria-label="Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jiannazzone3/"><i class="bi bi-instagram"></i></a>
-          <a class="nav-link" role="img" aria-label="Mastodon" target="_blank" rel="noopener noreferrer me" href="https://csed.social/@aiannazzone"><i class="bi bi-mastodon"></i></a>
-        </span>
-      </div>
-    </footer>
-
-  </body>
-  </html>
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
