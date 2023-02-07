@@ -1,0 +1,55 @@
+/* Color Palette: https://coolors.co/292929-5bc0eb-e55934-fa7921-fffff0 */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Paytone+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    font-family: 'Paytone One', sans-serif;
+    color: #FFFFF0;
+    background-color: #292929;
+}
+
+.header {
+    grid-area: header;
+    font-size: xx-large;
+    border-bottom: solid 0.5rem #E55934;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+    'header'
+    'content'
+    'footer';
+    /* grid-template-rows: 1fr 8fr 1fr; */
+    gap: 1rem;
+    align-content: space-between;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.footer {
+    grid-area: footer;
+    align-self: end;
+    font-size: xx-large;
+    border-top: solid 0.5rem #E55934;
+}
+
+.header, .footer {
+    text-align: end;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFF0;
+}
+
+.footer > a {
+    padding: 0 0.25rem 0 0.25rem;
+}
