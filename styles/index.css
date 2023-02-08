@@ -1,21 +1,33 @@
 /* Color Palette: https://coolors.co/292929-5bc0eb-e55934-fa7921-fffff0 */
 
-.content {
-  max-width: 1200px;
-  display: grid;
-  gap: 1rem;
-  align-content: space-evenly;
-}
-
 @media (min-width: 900px) {
-  .content { grid-template-columns: repeat(2, 1fr); }
-  .card { grid-template-columns: repeat(2, 1fr);}
-  .card-icon {width: 75%;}
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-icon {
+        width: 75%;
+    }
 }
 
 @media (max-width: 500px) {
-    .header {font-size: large;}
-    .card {font-size: large;}
+    .header {
+        font-size: large;
+    }
+
+    .card {
+        font-size: large;
+    }
+}
+
+.content {
+    max-width: 1200px;
+    display: grid;
+    gap: 3rem;
 }
 
 .card {
@@ -40,11 +52,11 @@
     text-transform: uppercase;
 }
 
-.card > img {
+.card>img {
     border-radius: 0.25rem;
 }
 
-.card:hover, a:hover {
+.card:hover {
     text-shadow: .25rem 0.25rem #E55934;
     transition: 0.125s;
 }

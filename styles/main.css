@@ -53,3 +53,8 @@ a {
 .footer > a {
     padding: 0 0.25rem 0 0.25rem;
 }
+
+a:hover {
+    text-shadow: .25rem 0.25rem #E55934;
+    transition: 0.125s;
+}
