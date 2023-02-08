@@ -10,9 +10,9 @@
 
 html, body {
     font-family: 'Paytone One', sans-serif;
-    
     color: #FFFFF0;
     background-color: #292929;
+    width: 100vw;
 }
 
 .container {
