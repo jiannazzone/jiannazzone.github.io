@@ -2,7 +2,7 @@ const scrambleLinks = document.querySelectorAll('.scramble');
 const scrambleStatus = Array(scrambleLinks.length).fill(false);
 
 scrambleLinks.forEach(link => {
-    link.addEventListener('mouseover', function animateScramble(event) {
+    link.addEventListener('mouseenter', function animateScramble(event) {
         const thisIndex = Array.from(scrambleLinks).indexOf(link)
         if (scrambleStatus[thisIndex]) { return }
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -35,5 +35,5 @@ scrambleLinks.forEach(link => {
 
 const appScreenshots = document.getElementsByClassName('screenshot')
 for (i = 0; i < appScreenshots.length; i++) {
-    appScreenshots[i].style.animationDelay = (i*0.25 + 's');
+    appScreenshots[i].style.animationDelay = (i*0.1 + 's');
 }
