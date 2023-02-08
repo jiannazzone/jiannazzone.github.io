@@ -1,7 +1,10 @@
 const scrambleLinks = document.querySelectorAll('.scramble');
+const scrambleStatus = Array(scrambleLinks.length).fill(false);
 
 scrambleLinks.forEach(link => {
     link.addEventListener('mouseover', function animateScramble(event) {
+        const thisIndex = Array.from(scrambleLinks).indexOf(link)
+        if (scrambleStatus[thisIndex]) { return }
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
         let iteration = 0;
@@ -26,5 +29,11 @@ scrambleLinks.forEach(link => {
 
             iteration += 1;
         }, 30);
+        scrambleStatus[thisIndex] = true;
     });
 });
+
+const appScreenshots = document.getElementsByClassName('screenshot')
+for (i = 0; i < appScreenshots.length; i++) {
+    appScreenshots[i].style.animationDelay = (i*0.25 + 's');
+}
