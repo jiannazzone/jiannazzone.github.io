@@ -1,0 +1,73 @@
+@media screen and (max-width: 500px) {
+    .content {
+        padding: 1rem;
+    }
+    .app-logo {
+        display: none;
+    }
+    .logo-row {
+        grid-template-columns: none;
+        grid-template-rows: 2fr 1fr;
+        gap: 0;
+    }
+}
+
+.content {
+    grid-template-areas: 
+    'logo-row'
+    'screenshots'
+    'description';
+    padding: 0rem 2rem 0rem 2rem;
+    gap: 2rem;
+}
+
+.logo-row {
+    grid-area: logo-row;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.app-logo {
+    max-height: 300px;
+    border-radius: 0.5rem;
+}
+
+.app-text {
+    display: grid;
+}
+
+.app-title {
+    font-size: 4rem;
+}
+
+.app-subtitle {
+    font-size: 3rem;
+}
+
+a.app-store-logo {
+    all: initial;
+}
+
+.app-store-logo > img {
+    justify-self: center;
+    width: 75%;
+    cursor: pointer;
+}
+
+.screenshot-row {
+    grid-area: screenshots;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.screenshot {
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.description-row {
+    grid-area: description;
+    font-size: 2rem;
+}
