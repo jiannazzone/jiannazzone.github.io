@@ -1,39 +1,30 @@
-function isMobile() {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        return true;
-    }else{
-        return false;
-    }
-}
+const scrambleLinks = document.querySelectorAll('.scramble');
 
-const menuItems = Array.from(document.getElementsByClassName('menu-item'));
-menuItems.forEach(menuItem => {
-    if (isMobile) {
-        menuItem.addEventListener('touchend', () => mobileClick(menuItem));
-        menuItem.style.pointerEvents = 'none';
-    } else {
-        menuItem.addEventListener('mouseover', () => menuHover(menuItem));
-        menuItem.addEventListener('mouseout', () => menuExit(menuItem));
-    }
+scrambleLinks.forEach(link => {
+    link.addEventListener('mouseover', function animateScramble(event) {
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let interval = null;
+        let iteration = 0;
+
+        clearInterval(interval);
+
+        interval = setInterval(() => {
+            event.target.innerText = event.target.innerText
+                .split("")
+                .map((letter, index) => {
+                    if (index < iteration) {
+                        return event.target.dataset.value[index];
+                    }
+
+                    return letters[Math.floor(Math.random() * 26)]
+                })
+                .join("");
+
+            if (iteration >= event.target.dataset.value.length) {
+                clearInterval(interval);
+            }
+
+            iteration += 1;
+        }, 30);
+    });
 });
-
-const detailItems = document.getElementsByClassName('menu-image');
-
-function mobileClick(menuItem) {
-    const menuName = menuItem.innerHTML.toLowerCase();
-
-}
-
-function menuHover(menuItem) {
-    const menuName = menuItem.innerHTML.toLowerCase();
-    const menuImage = document.getElementById(menuName + '-image');
-    menuImage.style.opacity = '100%';
-    menuImage.style.display = 'block';
-}
-
-function menuExit(menuItem) {
-    const menuName = menuItem.innerHTML.toLowerCase();
-    const menuImage = document.getElementById(menuName + '-image');
-    menuImage.style.opacity = '0%';
-    menuImage.style.display = 'none';
-}

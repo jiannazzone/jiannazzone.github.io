@@ -1,62 +1,31 @@
-/* Color Palette: https://coolors.co/292929-5bc0eb-e55934-fa7921-fffff0 */
-
-@media (min-width: 900px) {
-    .content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card-icon {
-        width: 75%;
-    }
-}
-
-@media (max-width: 500px) {
-    .header {
-        font-size: large;
-    }
-
-    .card {
-        font-size: large;
-    }
-}
-
-.content {
-    max-width: 1200px;
-    display: grid;
-    gap: 3rem;
-}
-
-.card {
-    padding: 1rem;
-    gap: 1rem;
-    display: grid;
-}
-
-.card-icon {
-    width: 100%;
-}
-
-.card-title {
+.menu-item {
     font-size: 4rem;
-    align-self: end;
-    word-break: break-all;
-}
-
-.heading {
     font-weight: bolder;
-    position: relative;
     text-transform: uppercase;
+    text-align: end;
 }
 
-.card>img {
+.menu-container {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    align-content: space-evenly;
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+.menu-item {
+    text-align: end;
+    padding: 1rem 2rem 1rem 2rem;
     border-radius: 0.25rem;
 }
 
-.card:hover {
-    text-shadow: .25rem 0.25rem #E55934;
-    transition: 0.125s;
+@media screen and (max-width: 700px) {
+    .menu-item {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .menu-item {
+        font-size: 2rem;
+    }
 }
