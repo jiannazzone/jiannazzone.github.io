@@ -1,22 +1,9 @@
-@media screen and (max-width: 500px) {
-    .content {
-        padding: 1rem;
-    }
-    .app-logo {
-        display: none;
-    }
-    .logo-row {
-        grid-template-columns: none;
-        grid-template-rows: 2fr 1fr;
-        gap: 0;
-    }
-}
-
 .content {
-    grid-template-areas: 
-    'logo-row'
-    'screenshots'
-    'description';
+    grid-template-areas:
+        'logo-row'
+        'screenshots'
+        'description'
+        'privacy';
     padding: 0rem 2rem 0rem 2rem;
     gap: 2rem;
 }
@@ -24,7 +11,8 @@
 .logo-row {
     grid-area: logo-row;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
 }
 
@@ -35,39 +23,90 @@
 
 .app-text {
     display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .app-title {
     font-size: 4rem;
 }
 
-.app-subtitle {
+.app-subtitle, .app-link {
     font-size: 3rem;
 }
 
-a.app-store-logo {
-    all: initial;
+.app-link {
+    display: grid;
+    align-items: center;
+    border-radius: 0.25rem;
 }
 
-.app-store-logo > img {
-    justify-self: center;
-    width: 75%;
-    cursor: pointer;
+.app-title, .app-subtitle, .app-link {
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 .screenshot-row {
     grid-area: screenshots;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .screenshot {
     border-radius: 0.5rem;
     width: 100%;
+    transform: translateY(100%);
+    opacity: 0%;
+    animation-name: screenshot-reveal;
+    animation-delay: 5s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes screenshot-reveal {
+    to {
+        transform: none;
+        opacity: 100%;
+    }
 }
 
 .description-row {
     grid-area: description;
     font-size: 2rem;
+    text-align: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: start;
+}
+
+.privacy {
+    grid-area: privacy;
+    display: grid;
+    gap: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.privacy-link {
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .app-logo {
+        display: none;
+    }
+
+    .logo-row {
+        text-align: center;
+        grid-template-columns: unset;
+        grid-template-rows: repeat(2, auto);
+        gap: 0rem;
+        justify-items: center;
+    }
 }
