@@ -82,26 +82,25 @@ a.calcurun:hover {
     background-color: #ed5959;
 }
 
-@media screen and (max-width: 700px) {
-    .header, .menu-item {
-        font-size: 2rem;
-    }
-
-    .header, .footer {
-        padding: 1rem 0rem 1rem 0rem;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .header, .menu-item {
-        font-size: 2rem;
-    }
-    .header, .footer {
-        padding: 1rem 0rem 1rem 0rem;
-    }
-}
-
 a:hover {
     background-color: #E55934;
     color: #292929;
+}
+
+@media screen and (max-width: 700px) {
+    .header {
+        font-size: 2rem !important;
+    }
+
+    .header, .footer {
+        padding: 1rem 0rem 1rem 0rem;
+    }
+    .menu-container {
+        padding: 1rem 0rem 1rem 0rem;
+    }
+
+    .menu-item {
+        padding: 1rem !important;
+        font-size: 3rem !important;
+    }
 }
