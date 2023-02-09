@@ -2,5 +2,5 @@
 .DS_Store
 favicon.psd
 *.psd
-.vscode/settings.json
-/old
+.vscode
+old
