@@ -78,6 +78,10 @@ a.lettercode:hover {
     color: #FFFF96;
 }
 
+a.calcurun:hover {
+    background-color: #ed5959;
+}
+
 @media screen and (max-width: 700px) {
     .header, .menu-item {
         font-size: 3rem;
