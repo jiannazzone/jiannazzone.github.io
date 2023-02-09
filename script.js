@@ -2,9 +2,9 @@ const scrambleLinks = document.querySelectorAll('.scramble');
 const scrambleStatus = Array(scrambleLinks.length).fill(false);
 
 scrambleLinks.forEach(link => {
-    link.addEventListener('mouseenter', function animateScramble(event) {
+    link.addEventListener('pointerover', function animateScramble(event) {
         const thisIndex = Array.from(scrambleLinks).indexOf(link)
-        if (scrambleStatus[thisIndex]) { return }
+        if (scrambleStatus[thisIndex] || event.pointerType != 'mouse') { return }
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
         let iteration = 0;
