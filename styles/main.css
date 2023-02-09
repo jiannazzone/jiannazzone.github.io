@@ -69,6 +69,15 @@ a {
     color: #FFFFF0;
 }
 
+a.calcusplit:hover {
+    background-color: #398A41;
+}
+
+a.lettercode:hover {
+    background-color: #434343;
+    color: #FFFF96;
+}
+
 @media screen and (max-width: 700px) {
     .header, .menu-item {
         font-size: 3rem;

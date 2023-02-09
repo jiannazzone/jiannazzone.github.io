@@ -1,235 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
+
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5P06E14W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FF5P06E14W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        gtag('config', 'G-FF5P06E14W');
+    </script>
 
-    gtag('config', 'G-FF5P06E14W');
-  </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#292929">
+    <title>CalcuSplit</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#398a41">
+    <!-- Social metadata -->
+    <meta property="og:title" content="CalcuSplit">
+    <meta property="og:description" content="Track every runner with a multi-athlete stopwatch.">
+    <meta property="og:image" content="https://apps.iannaz.zone/assets/social/CalcuSplit-Social.png">
+    <meta property="og:url" content="https://apps.iannaz.zone/calcusplit">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="Adam Iannazzone">
+    <meta name="twitter:image:alt" content="Screenshot of CalcuSplit">
 
-  <!-- Social metadata -->
-  <meta property="og:title" content="CalcuSplit">
-  <meta property="og:description" content="Track every runner with a multi-athlete stopwatch.">
-  <meta property="og:image" content="https://apps.iannaz.zone/assets/social/CalcuSplit-Social.png">
-  <meta property="og:url" content="https://apps.iannaz.zone/calcusplit">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:site_name" content="Adam Iannazzone">
-  <meta name="twitter:image:alt" content="Screenshot of CalcuSplit">
 
-  <title>CalcuSplit</title>
-
-  <link rel="shortcut icon" type="image/png" href="assets/calcusplit/icon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+    <link rel="shortcut icon" type="image/png" href="assets/lettercode/icon.png">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
 </head>
 
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar sticky-top navbar-expand-sm navbar-dark" id="calcusplit">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="bi bi-house"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="calcurun.html">CalcuRun</a>
-          <a class="nav-link active" href="calcusplit.html">CalcuSplit</a>
-          <a class="nav-link" href="lettercode.html">LetterCode</a>
-          <a class="nav-link" href="https://github.com/jiannazzone" target="_blank" rel="noopener noreferrer">Open-Source Projects <i class="bi bi-arrow-up-right-square"></i></a>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="mailto:calcuapps@iannaz.zone?subject=CalcuApps">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Main Content -->
-  <main>
+        <header class="header">
+            <a class="head-foot-link scramble" data-value="Adam Iannazzone" href="index.html">
+                Adam Iannazzone
+            </a>
+        </header>
 
-    <div class="container-lg">
+        <div class="content">
 
-      <!-- Name and Logo -->
-      <div class="row calcusplit-row">
-        <div class="col-sm-10 offset-sm-1 d-flex flex-row justify-content-between align-items-center">
-          <h1>CalcuSplit</h1>
-          <a href="https://apps.apple.com/us/app/calcusplit/id1563953421" target="_blank" rel="noopener noreferrer">
-            <img src="assets/calcusplit/icon.png" alt="CalcuSplit Icon" class="img-fluid icon">
-          </a>
-        </div>
-      </div>
+            <div class="logo-row">
+                <img class="app-logo" src="assets/calcusplit/icon.png">
+                <div class="app-text">
+                    <div class="app-title">CalcuSplit</div>
+                    <div class="app-subtitle">Keep track of your runners</div>
+                    <a href="https://apps.apple.com/us/app/calcusplit/id1563953421" target="_blank"
+                        rel="noopener noreferrer" class="app-link scramble calcusplit" data-value="Download Today">
+                        Download Today
+                    </a>
+                </div>
+            </div>
 
-      <!-- Main pitch -->
-      <div class="row align-items-center">
-        <div class="col-sm-10 offset-sm-1">
-          <h5>With CalcuSplit, you can easily time multiple runners on the track.
-            Whether you're a high school coach or some friends putting on a 1-mile race,
-            CalcuSplit has you covered.</h5>
-        </div>
-      </div>
+            <div class="screenshot-row">
+                <img class="screenshot" src="assets/calcusplit/calcusplit-1.png">
+                <img class="screenshot" src="assets/calcusplit/calcusplit-2.png">
+                <img class="screenshot" src="assets/calcusplit/calcusplit-3.png">
+                <img class="screenshot" src="assets/calcusplit/calcusplit-4.png">
+                <!-- <img class="screenshot" src="assets/calcusplit/calcusplit-5.png">
+                <img class="screenshot" src="assets/calcusplit/calcusplit-6.png"> -->
+            </div>
 
-      <!-- Free Details -->
+            <div class="description-row">
+                <div>
+                    A track coach's best friend! CalcuSplit lets you individually track every runner on your team.
+                </div>
+                <div>
+                    Use it for training sessions to get individual splits, or set up a race and give your runners
+                    accurate times for every lap.
+                </div>
+            </div>
 
-      <div class="row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-stopwatch h1 calcusplit"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          Select multiple runners and start your event.
-          Each runner will get their own stopwatch with a pause, resume, and finish button.
-        </div>
-      </div>
+            <div class="privacy">
+                <div>CalcuSplit does not collect any of your personal data.</div>
+                <a class="privacy-link scramble calcusplit" data-value="Privacy Policy" href="calcusplit-privacy.html">Privacy
+                    Policy</a>
+            </div>
 
-      <div class="row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-trophy h1 calcusplit"></i>
         </div>
-        <div class="col-md-9 col-9">
-          Designate events as <em>race</em> or <em>workout</em>.
-          In Race Mode, hitting the lap button will immediately start the next lap.
-          In Workout Mode, hitting the lap button will initiate a rest sequence.
-          Hit resume once the rest period is over to start timing the next lap.
-          In both cases, you can pre-select the number of laps or leave the event open.
-        </div>
-      </div>
 
-      <div class="row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-shield-lock h1 calcusplit"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          CalcuSplit respects your privacy. All data is processed on your device,
-          and unless you opt to share analytics with App Developers (found in your device Privacy settings),
-          nothing is transmitted online.
-        </div>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-lightning h1 calcusplit"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          Written entirely in Swift, CalcuSplit is lightweight and responsive so
-          you can get in, start tracking, and get accurate result fast.
-        </div>
-      </div>
-
-      <!-- Premium Details -->
-      <div class="row calcusplit-row align-items-center">
-        <div class="col-sm-10 offset-sm-1">
-          <h5>Unlock even more with CalcuSplit Premium! A one-time purchase.</h5>
-        </div>
-      </div>
-
-      <div class="row calcusplit-row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-clock-history h1 calcusplit premium"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          View results from prior events, or drill into the history of a single runner.
-          Even if you don't buy premium, all events are saved to your device, should you
-          choose to upgrade at a later time.
-        </div>
-      </div>
-
-      <div class="row calcusplit-row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-people h1 calcusplit premium"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          Bulk-import runners from a spreadsheet or CSV file.
-          You can include details such as gender and birthday for easy
-          age-group analysis.
-        </div>
-      </div>
-
-      <div class="row calcusplit-row align-items-center">
-        <div class="col-md-1 offset-md-1 col-3 text-center">
-          <i class="bi bi-share h1 calcusplit premium"></i>
-        </div>
-        <div class="col-md-9 col-9">
-          Export events as HTML or CSV files for easy sharing and analysis of results.
-        </div>
-      </div>
-
-      <!-- App Store Button and Call to Action-->
-      <div class="row align-items-center">
-        <div class="col-sm-7 offset-sm-1">
-          <h5>Track every runner with CalcuSplit. Free on the App Store.</h5>
-        </div>
-        <div class="col-sm-3 text-center">
-          <a href="https://apps.apple.com/us/app/calcusplit/id1563953421" target="_blank" rel="noopener noreferrer">
-            <img src="assets/AppStore.svg" alt="App Store Link" class="img-fluid" role="button" style="height:50px;width:auto">
-          </a>
-        </div>
-      </div>
-
-      <!-- Screenshots -->
-      <div class="row calcusplit-row">
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/1-Event.png" alt="Predictions Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/2-Event.png" alt="10K Splits Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/3-Event.png" alt="Other Distance Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/4-Event.png" alt="Pace and Time Calculator Screenshot" class="img-fluid screenshot">
-        </div>
-      </div>
-
-      <div class="row calcusplit-row" style="padding-top:0px">
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/1-Runners.png" alt="Runner Management Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/2-Runners.png" alt="Runner Details Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/3-Runners.png" alt="Import Runners Screenshot" class="img-fluid screenshot">
-        </div>
-        <div class="col-md-6 col-lg-3 text-center">
-          <img src="assets/calcusplit/1-History.png" alt="Event History Screenshot" class="img-fluid screenshot">
-        </div>
-      </div>
-
-      <!-- Privacy Policy -->
-      <div class="row">
-        <div class="col text-center">
-          <a href="calcusplit-privacy.html" class="btn btn-calcusplit">Privacy Policy</a>
-        </div>
-      </div>
+        <footer class="footer">
+            <a href="https://photos.iannaz.zone/" class="head-foot-link" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-camera-fill"></i>
+            </a>
+            <a target="_blank" class="head-foot-link" rel="me noopener noreferrer"
+                href="https://csed.social/@aiannazzone">
+                <i class="bi bi-mastodon"></i>
+            </a>
+        </footer>
 
     </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="container-fluid footer navbar-dark mt-auto d-flex flex-row" id="calcusplit">
-    <div class="container d-flex flex-row">
-      <span class="justify-content-start">Joseph Adam Iannazzone</span>
-      <span class="d-flex justify-content-end">
-        <a class="nav-link" role="img" aria-label="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/jiannazzone"><i class="bi bi-github"></i></a>
-        <a class="nav-link" role="img" aria-label="Instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jiannazzone3/"><i class="bi bi-instagram"></i></a>
-        <a class="nav-link" role="img" aria-label="Mastodon" target="_blank" rel="noopener noreferrer me" href="https://csed.social/@aiannazzone"><i class="bi bi-mastodon"></i></a>
-      </span>
-    </div>
-  </footer>
-
 </body>
+
+<script src="script.js"></script>
+
 </html>
