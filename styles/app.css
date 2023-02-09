@@ -62,6 +62,7 @@
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    object-fit: contain;
 }
 
 @keyframes screenshot-reveal {
@@ -109,5 +110,17 @@
         grid-template-rows: repeat(2, auto);
         gap: 0rem;
         justify-items: center;
+    }
+
+    .app-title {
+        font-size: 2rem;
+    }
+
+    .app-subtitle, .app-link {
+        font-size: 1.5rem;
+    }
+
+    .description-row, .privacy {
+        font-size: 1.5rem;
     }
 }
