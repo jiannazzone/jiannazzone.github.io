@@ -87,6 +87,10 @@ a:hover {
     color: #292929;
 }
 
+.scramble {
+    touch-action: none;
+}
+
 @media screen and (max-width: 700px) {
     .header {
         font-size: 2rem !important;
@@ -95,6 +99,7 @@ a:hover {
     .header, .footer {
         padding: 1rem 0rem 1rem 0rem;
     }
+
     .menu-container {
         padding: 1rem 0rem 1rem 0rem;
     }
