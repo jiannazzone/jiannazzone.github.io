@@ -82,6 +82,10 @@ a.calcurun:hover {
     background-color: #ed5959;
 }
 
+a.fanciful:hover {
+    background-color: #AD8CFF;
+}
+
 a:hover {
     background-color: #E55934;
     color: #292929;
