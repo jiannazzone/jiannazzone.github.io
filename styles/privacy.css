@@ -13,6 +13,10 @@
     gap: 1rem;
 }
 
+.back-container {
+    align-items: center;
+}
+
 .email-link:hover {
     border-radius: 0.25rem;
     padding: 0.25rem;
