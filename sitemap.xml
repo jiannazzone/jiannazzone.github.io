@@ -6,46 +6,50 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<!-- Updated 2022-01-13 -->
 
 <url>
-  <loc>https://apps.iannaz.zone/</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/index.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/calcurun</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/calcurun.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/calcusplit</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/calcusplit.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/fanciful</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/lettercode.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/lettercode</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/calcurun-privacy.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/calcurun-privacy</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/calcusplit-privacy.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/calcusplit-privacy</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://apps.iannaz.zone/lettercode-privacy.html</loc>
-  <lastmod>2022-01-13T03:06:31+00:00</lastmod>
+  <loc>https://iannaz.zone/fanciful-privacy</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://iannaz.zone/lettercode-privacy</loc>
+  <lastmod>2024-06-06T11:47:37+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
