@@ -11,6 +11,9 @@ html, body {
     padding: 0;
     background-color: var(--crt-bg);
     font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 header {
@@ -25,6 +28,11 @@ header {
 
     font-weight: bolder;
     font-size: xx-large;
+}
+
+footer {
+    background-color: var(--crt-amber);
+    height: 50px
 }
 
 .window {
