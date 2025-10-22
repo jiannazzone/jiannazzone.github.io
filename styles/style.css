@@ -3,14 +3,19 @@
 :root {
     --crt-bg: #20201A;
     --crt-amber: #C8A01D;
+    --mono-font: 'IBM Plex Mono', monospace;
+    --safe-font: 'IBM Plex Sans', sans-serif;
+    --current-font: var(--mono-font);
 }
+
+/* Page Styling */
 
 html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
     background-color: var(--crt-bg);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--current-font);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,8 +37,48 @@ header {
 
 footer {
     background-color: var(--crt-amber);
-    height: 50px
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    font-weight: bold;
+    padding: 0 1rem 0 1rem;
 }
+
+/* Checkbox Styling */
+
+.retro-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    font: inherit;
+    color: currentColor;
+    width: 1rem;
+    height: 1rem;
+    border: var(--crt-bg) 2px solid;
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    box-shadow: inset 1em 1em var(--crt-bg);
+    height: 1rem;
+    width: 1rem;
+    transform: scale(0);
+    transition: 100ms transform ease-out;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(0.5);
+}
+
+/* Window Styling */
 
 .window {
     border: var(--crt-amber) 5px solid;
@@ -58,6 +103,8 @@ footer {
     padding: 10px;
     color: var(--crt-amber)
 }
+
+/* Miscellaneous Element Styling */
 
 span.keyword {
     color: var(--crt-bg);
