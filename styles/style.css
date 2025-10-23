@@ -62,8 +62,32 @@ footer {
 }
 
 .taskbar-item {
-    border: var(--crt-bg) 2px solid;
-    padding: 0.25rem;
+    border-top: var(--crt-bg) 2px none;
+    border-bottom: var(--crt-bg) 2px none;
+    border-left: var(--crt-bg) 2px solid;
+    border-right: var(--crt-bg) 2px solid;
+    padding: 0 0.25rem 0 0.25rem;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.taskbar-item:hover{
+    border-top: var(--crt-bg) 2px solid;
+    border-bottom: var(--crt-bg) 2px solid;
+}
+
+.taskbar-active {
+    border-top: var(--crt-bg) 2px solid;
+    border-bottom: var(--crt-bg) 2px solid;
+    background: var(--crt-bg);
+    color: var(--crt-amber)
+}
+
+.taskbar-item img {
+    height: 35px;
 }
 
 /* Checkbox Styling */
