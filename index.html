@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdamOS</title>
+    <title>adamOS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/windows.css">
     <link rel="stylesheet" href="styles/index.css">
 </head>
 
@@ -25,33 +26,66 @@
 
     <main>
 
-        <div class="window">
+        <div class="window glow" id="start-window">
             <div class="window-header">
                 <div class="window-title">
                     welcome.txt
                 </div>
-                <div class="window-close">
-                    <img src="assets/site-assets/close-x.svg" height="30px">
+                <div class="window-button-container">
+                    <div class="window-min window-button" data-parent="start-window">
+                        <img src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="start-window">
+                        <img src="assets/site-assets/maximize.svg">
+                    </div>
+                    <!-- <div class="window-closer window-button" data-parent="start-window">
+                        <img src="assets/site-assets/close-x.svg">
+                    </div> -->
                 </div>
             </div>
             <div class="window-body">
-                <h2>Welcome to AdamOS</h2>
-                <h3>Please use the <span class="keyword">❖ Menu</span> to get started.</h3>
+                <h2>Welcome to <span class="keyword glow">adamOS</span></h2>
+
+                <p>
+                    Adam Iannazzone is a self-taught programmer, photographer, and former high school teacher.
+                    In his spare time, he likes to code iOS Apps, build websites, and help local non-profits with their
+                    tech stack, such as websites, email, and Google Workspace.
+                </p>
+
+                <p>
+                    An avid runner, you can find him hitting the trails in the Hudson Valley all times of year,
+                    although in the winter, he's more likely to spend the weekends snowboarding or bouldering at the
+                    local gym.
+                </p>
+
+                <p>
+                    You can also find him on the airwaves as an amateur radio operator with the callsign <a class="keyword glow"
+                        href="https://www.qrz.com/db/K2CAT" target="_blank" rel="noopener noreferrer">K2CAT</a>.
+                </p>
+                <h3>Please use the <span class="keyword glow">❖ Menu</span> to get started.</h3>
             </div>
         </div>
 
     </main>
 
 
-    <footer>
+    <footer class="glow">
+
+        <div class="taskbar">
+            <div class="taskbar-item taskbar-active">
+                welcome.txt
+            </div>
+        </div>
+
         <div class="retro-checkbox">
             <label for="visuals-checkbox">Reduce Visuals Effects</label>
-            <input type="checkbox" id="reduce-visuals-checkbox" class="retro-checkbox" name="visuals-checkbox"/>
+            <input type="checkbox" id="reduce-visuals-checkbox" class="retro-checkbox" name="visuals-checkbox" />
         </div>
     </footer>
 
     <script src="scripts/clock.js"></script>
     <script src="scripts/accessibility.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
