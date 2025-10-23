@@ -23,13 +23,20 @@
             ❖ Menu
         </div>
 
-        <div class="menu glow">
-            <div class="menu-item">CalcuSplit</div>
-            <div class="menu-item">CalcuRun</div>
-            <div class="menu-item">LetterCode</div>
-            <div class="menu-item">Fanficul Fonts</div>
-            <div class="menu-item">Github</div>
-            <div class="menu-item" data-parent="on-air-window">On-Air</div>
+        <div class="menu glow menu-hidden" id="start-menu">
+            <div class="menu-section">
+                <div class="menu-section-header">iOS Apps</div>
+                <div class="menu-item" data-parent="calcusplit-window">CalcuSplit</div>
+                <div class="menu-item">CalcuRun</div>
+                <div class="menu-item">LetterCode</div>
+                <div class="menu-item">Fanficul Fonts</div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-header">External Links</div>
+                <div class="menu-item">Github</div>
+                <div class="menu-item" data-parent="on-air-window">On-Air</div>
+            </div>
         </div>
 
         <div id="clock"></div>
@@ -39,6 +46,7 @@
     <!-- Desktop -->
     <main>
 
+        <!-- Welcome -->
         <div class="window glow draggable window-active" id="welcome-window">
             <div class="window-header" data-parent="welcome-window">
                 <div class="window-title">
@@ -46,16 +54,16 @@
                 </div>
                 <div class="window-button-container">
                     <div class="window-taskbar window-button" data-parent="welcome-window">
-                        <img src="assets/site-assets/to-taskbar.svg">
+                        <img class="window-button-img" src="assets/site-assets/to-taskbar.svg">
                     </div>
                     <div class="window-min window-button window-button-hidden" data-parent="welcome-window">
-                        <img src="assets/site-assets/minimize.svg">
+                        <img class="window-button-img" src="assets/site-assets/minimize.svg">
                     </div>
                     <div class="window-max window-button" data-parent="welcome-window">
-                        <img src="assets/site-assets/maximize.svg">
+                        <img class="window-button-img" src="assets/site-assets/maximize.svg">
                     </div>
                     <div class="window-closer window-button" data-parent="welcome-window">
-                        <img src="assets/site-assets/close-x.svg">
+                        <img class="window-button-img" src="assets/site-assets/close-x.svg">
                     </div>
                 </div>
             </div>
@@ -82,6 +90,131 @@
                 <h3>Please use the <span class="keyword glow">❖ Menu</span> to get started.</h3>
             </div>
         </div>
+        <!-- End Welcome -->
+
+        <!-- CalcuSplit -->
+        <div class="window glow draggable window-closed" id="calcusplit-window">
+            <div class="window-header" data-parent="calcusplit-window">
+                <div class="window-title">
+                    calcusplit.txt
+                </div>
+                <div class="window-button-container">
+                    <div class="window-taskbar window-button" data-parent="calcusplit-window">
+                        <img class="window-button-img" src="assets/site-assets/to-taskbar.svg">
+                    </div>
+                    <div class="window-min window-button window-button-hidden" data-parent="calcusplit-window">
+                        <img class="window-button-img" src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="calcusplit-window">
+                        <img class="window-button-img" src="assets/site-assets/maximize.svg">
+                    </div>
+                    <div class="window-closer window-button" data-parent="calcusplit-window">
+                        <img class="window-button-img" src="assets/site-assets/close-x.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
+                <p id="on-air-details"></p>
+                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank" rel="noopener noreferrer">
+                    Find me on QRZ
+                </a></h3>
+            </div>
+        </div>
+        <!-- End CalcuSplit -->
+
+        <!-- CalcuRun -->
+        <div class="window glow draggable window-closed" id="calcurun-window">
+            <div class="window-header" data-parent="on-air-window">
+                <div class="window-title">
+                    on-air.txt
+                </div>
+                <div class="window-button-container">
+                    <div class="window-taskbar window-button" data-parent="calcurun-window">
+                        <img src="assets/site-assets/to-taskbar.svg">
+                    </div>
+                    <div class="window-min window-button window-button-hidden" data-parent="calcurun-window">
+                        <img src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="calcurun-window">
+                        <img src="assets/site-assets/maximize.svg">
+                    </div>
+                    <div class="window-closer window-button" data-parent="calcurun-window">
+                        <img src="assets/site-assets/close-x.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
+                <p id="on-air-details"></p>
+                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank" rel="noopener noreferrer">
+                    Find me on QRZ
+                </a></h3>
+            </div>
+        </div>
+        <!-- End CalcuRun -->
+
+        <!-- Lettercode -->
+        <div class="window glow draggable window-closed" id="lettercode-window">
+            <div class="window-header" data-parent="on-air-window">
+                <div class="window-title">
+                    on-air.txt
+                </div>
+                <div class="window-button-container">
+                    <div class="window-taskbar window-button" data-parent="lettercode-window">
+                        <img src="assets/site-assets/to-taskbar.svg">
+                    </div>
+                    <div class="window-min window-button window-button-hidden" data-parent="lettercode-window">
+                        <img src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="lettercode-window">
+                        <img src="assets/site-assets/maximize.svg">
+                    </div>
+                    <div class="window-closer window-button" data-parent="lettercode-window">
+                        <img src="assets/site-assets/close-x.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
+                <p id="on-air-details"></p>
+                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank" rel="noopener noreferrer">
+                    Find me on QRZ
+                </a></h3>
+            </div>
+        </div>
+        <!-- End Lettercode -->
+
+        <!-- Fanciful Fonts -->
+        <div class="window glow draggable window-closed" id="fanciful-fonts-window">
+            <div class="window-header" data-parent="on-air-window">
+                <div class="window-title">
+                    on-air.txt
+                </div>
+                <div class="window-button-container">
+                    <div class="window-taskbar window-button" data-parent="fanciful-fonts-window">
+                        <img src="assets/site-assets/to-taskbar.svg">
+                    </div>
+                    <div class="window-min window-button window-button-hidden" data-parent="fanciful-fonts-window">
+                        <img src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="fanciful-fonts-window">
+                        <img src="assets/site-assets/maximize.svg">
+                    </div>
+                    <div class="window-closer window-button" data-parent="fanciful-fonts-window">
+                        <img src="assets/site-assets/close-x.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
+                <p id="on-air-details"></p>
+                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank" rel="noopener noreferrer">
+                    Find me on QRZ
+                </a></h3>
+            </div>
+        </div>
+        <!-- End Fanciful Fonts -->
 
         <div class="window glow draggable window-closed" id="on-air-window">
             <div class="window-header" data-parent="on-air-window">
@@ -126,6 +259,22 @@
             </a>
             <div class="taskbar-item taskbar-active" data-parent="welcome-window">
                 welcome.txt
+            </div>
+
+            <div class="taskbar-item taskbar-closed" data-parent="calcusplit-window">
+                calcusplit.txt
+            </div>
+
+            <div class="taskbar-item taskbar-closed" data-parent="calcurun-window">
+                calcurun.txt
+            </div>
+
+            <div class="taskbar-item taskbar-closed" data-parent="lettercode-window">
+                lettercode.txt
+            </div>
+
+            <div class="taskbar-item taskbar-closed" data-parent="fanficul-fonts-window">
+                fanciful-fonts.txt
             </div>
 
             <div class="taskbar-item taskbar-closed" data-parent="on-air-window">

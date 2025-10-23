@@ -9,24 +9,38 @@ const windowElems = document.querySelectorAll('.window');
 
 const menuItems = document.querySelectorAll('.menu-item');
 
-// Menu Logic
+// Menu Selection Logic
 menuItems.forEach((menuItem) => {
     menuItem.addEventListener('click', function(e) {
         switchWindow(menuItem);
     });
 });
 
+// Menu Toggling
+const menuIcon = document.getElementById('menu-icon')
+menuIcon.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+    const menuElem = document.getElementById('start-menu');
+    if (menuElem.classList.contains('menu-hidden')) {
+        menuIcon.className = ' menu-icon-active'
+        menuElem.className = 'menu glow';
+    } else {
+        menuIcon.className = '';
+        menuElem.className = 'menu glow menu-hidden';
+    }
+}
+
 // Window Switching Logic
 taskbarItems.forEach((taskbarItem) => {
     taskbarItem.addEventListener('click', function(e) {
-        // if (e.target.classList.includes('window-button')) return;
         switchWindow(taskbarItem)
     });
 });
 windowElems.forEach((windowElem) => {
     windowElem.addEventListener('click', function(e) {
-        if (e.target.className.includes('window-button')) return;
-        switchWindow(windowElem)
+        if (e.target.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
+        switchWindow(windowElem);
     });
 });
 
@@ -140,11 +154,12 @@ toTaskbarButtonElems.forEach((toTaskbarButton) => {
 
 function reduceToTaskbar(button) {
     const windowElem = document.getElementById(button.dataset.parent);
-    windowElem.className = windowElem.className.replace('window-active', '');
-    windowElem.className += ' window-in-taskbar';
+    windowElem.className = 'window glow draggable window-in-taskbar';
 
-    taskbarItems.forEach((taskbarItem) =>{        
-        taskbarItem.className = 'taskbar-item';
+    taskbarItems.forEach((taskbarItem) =>{      
+        if (!taskbarItem.classList.contains('taskbar-closed')) {
+            taskbarItem.className = 'taskbar-item';
+        }
     });
 }
 
