@@ -18,6 +18,13 @@
     z-index: 10;
 }
 
+.window-max {
+    position: static;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
 .window-header {
     background-color: var(--crt-amber);
     display: flex;
@@ -48,8 +55,12 @@
     justify-content: flex-end;
 }
 
-.window-close, .window-max, .window-min {
+.window-closer, .window-max, .window-min {
     cursor: pointer;
+}
+
+.window-button-hidden {
+    display: none;
 }
 
 .window-body {
