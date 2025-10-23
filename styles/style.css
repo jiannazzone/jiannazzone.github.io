@@ -33,6 +33,26 @@ header {
     font-size: xx-large;
 }
 
+header .menu {
+    position: absolute;
+    padding: 1rem 0 1rem 0;
+    left: 1.5rem;
+    top: 50px;
+    background-color: var(--crt-amber);
+    font-size: large;
+    z-index: 11;
+}
+
+.menu-item {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: var(--crt-bg);
+    color: var(--crt-amber)
+}
+
 main {
     height: 100%;
     display: flex;
@@ -84,6 +104,10 @@ footer {
     border-bottom: var(--crt-bg) 2px solid;
     background: var(--crt-bg);
     color: var(--crt-amber)
+}
+
+.taskbar-closed {
+    display: none;
 }
 
 .taskbar-item img {

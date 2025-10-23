@@ -29,7 +29,7 @@
     top: 0px;
 }
 
-.window-in-taskbar {
+.window-in-taskbar, .window-closed {
     display: none;
 }
 

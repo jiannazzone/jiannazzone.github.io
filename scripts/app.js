@@ -7,6 +7,15 @@ const toTaskbarButtonElems = document.querySelectorAll('.window-taskbar');
 const taskbarItems = document.querySelectorAll('.taskbar-item');
 const windowElems = document.querySelectorAll('.window');
 
+const menuItems = document.querySelectorAll('.menu-item');
+
+// Menu Logic
+menuItems.forEach((menuItem) => {
+    menuItem.addEventListener('click', function(e) {
+        switchWindow(menuItem);
+    });
+});
+
 // Window Switching Logic
 taskbarItems.forEach((taskbarItem) => {
     taskbarItem.addEventListener('click', function(e) {
@@ -16,7 +25,7 @@ taskbarItems.forEach((taskbarItem) => {
 });
 windowElems.forEach((windowElem) => {
     windowElem.addEventListener('click', function(e) {
-        if (e.target.classList.includes('window-button')) return;
+        if (e.target.className.includes('window-button')) return;
         switchWindow(windowElem)
     });
 });
@@ -26,29 +35,42 @@ function switchWindow(elem) {
         const taskbarParentID = taskbarItem.dataset.parent;
         const thisWindow = document.getElementById(taskbarParentID);
 
-        // We have identified the correct window and/or taskbar-item
-        if (elem == taskbarItem || elem.id == taskbarParentID) {
-            
+        // User has selected an item from the menu
+        if (elem.classList.contains('menu-item')) {
+            if (elem.dataset.parent == taskbarParentID) {
+                showWindow(thisWindow, taskbarItem);
+            } else {
+                defocusWindow(thisWindow, taskbarItem);
+            }
+        
+        // User has selected a taskbarItem or window
+        } else if (elem == taskbarItem || elem.id == taskbarParentID) {
             // Make active window (if not already)
             if (!thisWindow.className.includes('window-active')){
-                thisWindow.className += ' window-active';
-                thisWindow.className = thisWindow.className.replace('window-in-taskbar', '');
-            }
-            
-            // Make active taskbar-item (if not already)
-            if (!taskbarItem.className.includes('taskbar-active')) {
-                taskbarItem.className += ' taskbar-active'
-            }
-
-        // This window and taskbar-item should NOT be active
+                showWindow(thisWindow, taskbarItem);
+            } // if
         } else {
-            if (thisWindow != null) {
-                thisWindow.className = thisWindow.className.replace('window-active', '');
-                taskbarItem.className = taskbarItem.className.replace('taskbar-active', '');
-            }
+            defocusWindow(thisWindow, taskbarItem);
         }
     });
 }
+
+function showWindow(windowElem, taskbarElem) {
+    // Show window
+    windowElem.className += ' window-active';
+    windowElem.className = windowElem.className.replace('window-in-taskbar', '');
+    windowElem.className = windowElem.className.replace('window-closed', '');
+
+    // Make taskbar item active
+    taskbarElem.className += ' taskbar-active'
+    taskbarElem.className = taskbarElem.className.replace('taskbar-closed','');
+} // showWindow
+
+function defocusWindow(windowElem, taskbarElem) {
+    if (windowElem == null || taskbarElem == null) return;
+    windowElem.className = windowElem.className.replace('window-active', '');
+    taskbarElem.className = taskbarElem.className.replace('taskbar-active');
+} //defocusWindow
 
 // Close Windows
 closeButtonElems.forEach((el) => {
