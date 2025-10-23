@@ -1,24 +1,80 @@
-// Get all windows and add event listeners to the X
+// Window Buttons
 const closeButtonElems = document.querySelectorAll('.window-closer');
 const maxButtonElems = document.querySelectorAll('.window-max');
 const minButtonElems = document.querySelectorAll('.window-min');
+const toTaskbarButtonElems = document.querySelectorAll('.window-taskbar');
 
-closeButtonElems.forEach((el) => {
-    el.addEventListener('click', function () {
-        const windowElem = document.getElementById(el.dataset.parent);
-        closeWindow(windowElem);
+const taskbarItems = document.querySelectorAll('.taskbar-item');
+const windowElems = document.querySelectorAll('.window');
+
+// Window Switching Logic
+taskbarItems.forEach((taskbarItem) => {
+    taskbarItem.addEventListener('click', function(e) {
+        // if (e.target.classList.includes('window-button')) return;
+        switchWindow(taskbarItem)
+    });
+});
+windowElems.forEach((windowElem) => {
+    windowElem.addEventListener('click', function(e) {
+        if (e.target.classList.includes('window-button')) return;
+        switchWindow(windowElem)
     });
 });
 
+function switchWindow(elem) {
+    taskbarItems.forEach((taskbarItem) => {
+        const taskbarParentID = taskbarItem.dataset.parent;
+        const thisWindow = document.getElementById(taskbarParentID);
+
+        // We have identified the correct window and/or taskbar-item
+        if (elem == taskbarItem || elem.id == taskbarParentID) {
+            
+            // Make active window (if not already)
+            if (!thisWindow.className.includes('window-active')){
+                thisWindow.className += ' window-active';
+                thisWindow.className = thisWindow.className.replace('window-in-taskbar', '');
+            }
+            
+            // Make active taskbar-item (if not already)
+            if (!taskbarItem.className.includes('taskbar-active')) {
+                taskbarItem.className += ' taskbar-active'
+            }
+
+        // This window and taskbar-item should NOT be active
+        } else {
+            if (thisWindow != null) {
+                thisWindow.className = thisWindow.className.replace('window-active', '');
+                taskbarItem.className = taskbarItem.className.replace('taskbar-active', '');
+            }
+        }
+    });
+}
+
+// Close Windows
+closeButtonElems.forEach((el) => {
+    el.addEventListener('click', function() {
+        closeWindow(el);
+    });
+});
+
+function closeWindow(button) {
+    const windowElem = document.getElementById(button.dataset.parent);
+    windowElem.style.display = 'none';
+    taskbarItems.forEach((el) =>{
+        if (el.dataset.parent == windowElem.id) {
+            el.style.display = 'none';
+        }
+    })
+}
+
+// Maximize Windows
 maxButtonElems.forEach((el) => {
     el.addEventListener('click', function() {
         maximizeWindow(el);
     });
 });
 
-// Maximize Windows
 function maximizeWindow(button) {
-
     // Swap button visibility
     minButtonElems.forEach((el) => {
         if (el.dataset.parent == button.dataset.parent) {
@@ -33,14 +89,13 @@ function maximizeWindow(button) {
 }
 
 // Minimize Windows
-for (let i = 0; i < minButtonElems.length; i++) {
-    minButtonElems[i].addEventListener('click', function () {
-        minimizeWindow(minButtonElems[i]);
-    });
-}
+minButtonElems.forEach((el) => {
+    el.addEventListener('click', function() {
+        minimizeWindow(el)
+    })
+});
 
 function minimizeWindow(button) {
-
     // Swap button visibility
     maxButtonElems.forEach((el) => {
         if (el.dataset.parent == button.dataset.parent) {
@@ -54,20 +109,32 @@ function minimizeWindow(button) {
     windowElem.className = 'window glow draggable';
 }
 
-function closeWindow(windowElem) {
-    windowElem.style.scale = '0';
+// Minimize to Taskbar
+toTaskbarButtonElems.forEach((toTaskbarButton) => {
+    toTaskbarButton.addEventListener('click', function() {
+        reduceToTaskbar(toTaskbarButton);
+    });
+});
+
+function reduceToTaskbar(button) {
+    const windowElem = document.getElementById(button.dataset.parent);
+    windowElem.className = windowElem.className.replace('window-active', '');
+    windowElem.className += ' window-in-taskbar';
+
+    taskbarItems.forEach((taskbarItem) =>{        
+        taskbarItem.className = 'taskbar-item';
+    });
 }
-
-
 
 // Window Dragging
 document.querySelectorAll('.window-header').forEach(header => {
     const windowEl = header.closest('.window');
     let offsetX = 0, offsetY = 0, isDragging = false;
 
-    header.addEventListener('mousedown', e => {
+    header.addEventListener('pointerdown', e => {
         if (e.target.closest('.window-button')) return;
         if (!e.target.closest('.window').className.includes('draggable')) return;
+        switchWindow(windowEl);
 
         isDragging = true;
         const rect = windowEl.getBoundingClientRect();
@@ -77,46 +144,14 @@ document.querySelectorAll('.window-header').forEach(header => {
         windowEl.style.position = 'absolute';
     });
 
-    document.addEventListener('mousemove', e => {
+    document.addEventListener('pointermove', e => {
         if (!isDragging) return;
         e.preventDefault();
         windowEl.style.left = `${e.clientX - offsetX}px`;
         windowEl.style.top = `${e.clientY - offsetY}px`;
     });
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         isDragging = false;
     });
 });
-
-// Window Switching Logic
-const taskbarItems = document.getElementsByClassName('taskbar-item');
-const windowElems = document.getElementsByClassName('window');
-for (let i = 0; i < taskbarItems.length; i++) {
-    taskbarItems[i].addEventListener('click', function() {
-        switchWindow(this)
-    });
-}
-for (let i = 0; i < windowElems.length; i++) {
-    windowElems[i].addEventListener('click', function() {
-        switchWindow(this);
-    });
-}
-
-function switchWindow(elem) {
-    for (let i = 0; i < taskbarItems.length; i++) {
-        const taskbarParent = taskbarItems[i].dataset.parent;
-        const thisWindow = document.getElementById(taskbarParent);
-        if (elem == taskbarItems[i] || elem.id == taskbarParent) {
-            if (thisWindow != null) {
-                thisWindow.className += ' window-active';
-                taskbarItems[i].className += ' taskbar-active'
-            }
-        } else {
-            if (thisWindow != null) {
-                thisWindow.className = 'window glow draggable';
-                taskbarItems[i].className = 'taskbar-item'
-            }
-        }
-    }
-}

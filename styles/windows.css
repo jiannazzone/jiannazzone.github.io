@@ -1,4 +1,5 @@
 .window {
+    display: block;
     position: absolute;
     border: var(--crt-amber) 5px solid;
     background: var(--crt-bg);
@@ -12,6 +13,7 @@
     z-index: 2;
     transition: none !important;
     will-change: transform, left, top;
+    will-change: display;
 }
 
 .window-active {
@@ -19,10 +21,16 @@
 }
 
 .window-max {
-    position: static;
+    position: static !important;
     width: 100%;
     height: 100%;
     max-width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.window-in-taskbar {
+    display: none;
 }
 
 .window-header {
@@ -55,7 +63,7 @@
     justify-content: flex-end;
 }
 
-.window-closer, .window-max, .window-min {
+.window-button {
     cursor: pointer;
 }
 
@@ -66,6 +74,7 @@
 .window-body {
     padding: 20px;
     color: var(--crt-amber);
+    overflow: scroll;
 }
 
 .window-body p {
