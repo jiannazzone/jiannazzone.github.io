@@ -81,3 +81,36 @@
     margin: 3rem 0 3rem 0;
     line-height: 1.5rem;
 }
+
+.app-store-link, .privacy-button {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.app-screenshot-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    object-fit: contain;
+}
+
+.app-screenshot {
+    margin: 0.25rem;
+    max-width: 33%;
+    max-height: 750px;        
+    border: var(--crt-amber) 2px solid;
+}
+
+.privacy-button {
+    margin-top: 2rem;
+}
+
+.privacy-policy {
+    line-height: 0rem;
+}
+
+.privacy-policy-hidden {
+    display: none;
+}

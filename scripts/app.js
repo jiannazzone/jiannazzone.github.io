@@ -192,3 +192,17 @@ document.querySelectorAll('.window-header').forEach(header => {
         isDragging = false;
     });
 });
+
+// Privacy Policy Toggles
+const privacyButtons = document.querySelectorAll('.privacy-button');
+privacyButtons.forEach((button) => {
+    button.addEventListener('click', function() {
+        const privacyPolicy = document.getElementById(button.dataset.toggleTarget)
+        
+        if (privacyPolicy.classList.contains('privacy-policy-hidden')) {
+            privacyPolicy.classList = 'privacy-policy';
+        } else {
+            privacyPolicy.className = 'privacy-policy privacy-policy-hidden';
+        }
+    })
+});

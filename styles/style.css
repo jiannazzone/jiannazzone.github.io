@@ -91,6 +91,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    overflow-y: scroll;
 }
 
 footer {
@@ -178,7 +179,7 @@ input[type="checkbox"]:checked::before {
 
 /* Miscellaneous Element Styling */
 .glow {
-    box-shadow: 0 0 1rem -0.5rem var(--crt-glow);
+    box-shadow: 0 0 1.25rem -0.5rem var(--crt-glow);
     transition: 500ms ease-out;
 }
 
@@ -203,4 +204,3 @@ a.keyword:hover {
     border: var(--crt-amber) 2px solid;
     transition: 100ms ease-in-out;
 }
-
