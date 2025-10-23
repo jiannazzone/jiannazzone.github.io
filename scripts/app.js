@@ -58,8 +58,6 @@ document.querySelectorAll('.window-header').forEach(header => {
         offsetY = e.clientY - rect.top;
 
         windowEl.style.position = 'absolute';
-        // windowEl.style.zIndex = 1000; // bring to front
-        // document.body.appendChild(windowEl); // ensure it's above other elements
     });
 
     document.addEventListener('mousemove', e => {
