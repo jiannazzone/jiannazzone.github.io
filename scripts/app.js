@@ -4,33 +4,28 @@ const maxButtonElems = document.getElementsByClassName('window-max');
 const minButtonElems = document.getElementsByClassName('window-min');
 const allButtons = document.getElementsByClassName('window-button');
 
-for (let i = 0; i < allButtons.length; i++) {
-
-}
-
 for (let i = 0; i < closeButtonElems.length; i++) {
     closeButtonElems[i].addEventListener('click', function () {
-        windowElem = document.getElementById(this.dataset.parent);
+        const windowElem = document.getElementById(this.dataset.parent);
         closeWindow(windowElem);
     });
 }
 
 for (let i = 0; i < maxButtonElems.length; i++) {
     maxButtonElems[i].addEventListener('click', function () {
-        windowElem = document.getElementById(this.dataset.parent);
+        const windowElem = document.getElementById(this.dataset.parent);
         maximizeWindow(windowElem);
     });
 }
 
 for (let i = 0; i < minButtonElems.length; i++) {
     minButtonElems[i].addEventListener('click', function () {
-        windowElem = document.getElementById(this.dataset.parent);
+        const windowElem = document.getElementById(this.dataset.parent);
         minimizeWindow(windowElem);
     });
 }
 
 function closeWindow(windowElem) {
-    console.log('closing...')
     windowElem.style.scale = '0';
 }
 
@@ -79,23 +74,34 @@ document.querySelectorAll('.window-header').forEach(header => {
     });
 });
 
-// Reset and bring to front by clicking the taskbar icon
-const taskbarItems = document.getElementsByClassName('taskbar-item')
+// Window Switching Logic
+const taskbarItems = document.getElementsByClassName('taskbar-item');
+const windowElems = document.getElementsByClassName('window');
 for (let i = 0; i < taskbarItems.length; i++) {
     taskbarItems[i].addEventListener('click', function() {
-    for (let j = 0; j < taskbarItems.length; j++) {
-        const thisWindow = document.getElementById(taskbarItems[j].dataset.parent);
-        if (i == j) {
+        switchWindow(this)
+    });
+}
+for (let i = 0; i < windowElems.length; i++) {
+    windowElems[i].addEventListener('click', function() {
+        switchWindow(this);
+    });
+}
+
+function switchWindow(elem) {
+    for (let i = 0; i < taskbarItems.length; i++) {
+        const taskbarParent = taskbarItems[i].dataset.parent;
+        const thisWindow = document.getElementById(taskbarParent);
+        if (elem == taskbarItems[i] || elem.id == taskbarParent) {
             if (thisWindow != null) {
                 thisWindow.className += ' window-active';
-                taskbarItems[j].className += ' taskbar-active'
+                taskbarItems[i].className += ' taskbar-active'
             }
         } else {
             if (thisWindow != null) {
                 thisWindow.className = 'window glow draggable';
-                taskbarItems[j].className = 'taskbar-item'
+                taskbarItems[i].className = 'taskbar-item'
             }
         }
     }
-    });
 }
