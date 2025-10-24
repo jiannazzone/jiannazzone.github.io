@@ -51,6 +51,31 @@ windowElems.forEach((windowElem) => {
     });
 });
 
+
+function focusWindow(windowElem) {
+    if (!windowElem.className.includes('window-active')) {
+        windowElem.className += ' window-active';
+    }
+    windowElem.className = windowElem.className.replace('window-in-taskbar', '');
+    windowElem.className = windowElem.className.replace('window-closed', '');
+
+    // Find paired taskbar and focus it
+    const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
+    if (!taskbarElem.className.includes('taskbar-active')) {
+        taskbarElem.className += ' taskbar-active'
+    }
+    taskbarElem.className = taskbarElem.className.replace('taskbar-closed','');
+} // focusWindow
+
+function defocusWindow(windowElem) {
+    if (windowElem == null) return;
+    const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
+
+    if (taskbarElem == null) return;
+    windowElem.className = windowElem.className.replace('window-active', '');
+    taskbarElem.className = taskbarElem.className.replace('taskbar-active','');
+} //defocusWindow
+
 function switchWindow(elem) {
     taskbarItems.forEach((taskbarItem) => {
         const taskbarParentID = taskbarItem.dataset.parent;
@@ -59,39 +84,22 @@ function switchWindow(elem) {
         // User has selected an item from the menu
         if (elem.classList.contains('menu-item')) {
             if (elem.dataset.parent == taskbarParentID) {
-                showWindow(thisWindow, taskbarItem);
+                focusWindow(thisWindow);
             } else {
-                defocusWindow(thisWindow, taskbarItem);
+                defocusWindow(thisWindow);
             }
         
         // User has selected a taskbarItem or window
         } else if (elem == taskbarItem || elem.id == taskbarParentID) {
             // Make active window (if not already)
             if (!thisWindow.className.includes('window-active')){
-                showWindow(thisWindow, taskbarItem);
+                focusWindow(thisWindow);
             } // if
         } else {
-            defocusWindow(thisWindow, taskbarItem);
+            defocusWindow(thisWindow);
         }
     });
-}
-
-function showWindow(windowElem, taskbarElem) {
-    // Show window
-    windowElem.className += ' window-active';
-    windowElem.className = windowElem.className.replace('window-in-taskbar', '');
-    windowElem.className = windowElem.className.replace('window-closed', '');
-
-    // Make taskbar item active
-    taskbarElem.className += ' taskbar-active'
-    taskbarElem.className = taskbarElem.className.replace('taskbar-closed','');
-} // showWindow
-
-function defocusWindow(windowElem, taskbarElem) {
-    if (windowElem == null || taskbarElem == null) return;
-    windowElem.className = windowElem.className.replace('window-active', '');
-    taskbarElem.className = taskbarElem.className.replace('taskbar-active');
-} //defocusWindow
+} // switchWindow
 
 // Close Windows
 closeButtonElems.forEach((el) => {
@@ -108,7 +116,7 @@ function closeWindow(button) {
             el.style.display = 'none';
         }
     })
-}
+} // closeWindow
 
 // Maximize Windows
 maxButtonElems.forEach((el) => {
@@ -128,7 +136,15 @@ function maximizeWindow(button) {
 
     // Adjust styles
     const windowElem = document.getElementById(button.dataset.parent);
-    windowElem.className = 'window glow window-max';
+    windowElems.forEach((el) => {
+        if (el == windowElem) {
+            focusWindow(el);
+            windowElem.className += ' window-max';
+        } else {
+            el.className = el.className.replace('window-max', '');
+            defocusWindow(el)
+        }
+    });
 }
 
 // Minimize Windows
