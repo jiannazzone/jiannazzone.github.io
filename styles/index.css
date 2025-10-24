@@ -1,9 +1,0 @@
-#welcome-window {
-    /* animation: 1s ease 0s 1 windowWiggle; */
-}
-
-@keyframes windowWiggle {
-    50% {
-        transform: translate(40px, 40px);
-    }
-}
