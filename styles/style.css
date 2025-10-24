@@ -76,11 +76,17 @@ header .menu {
     padding: 0.5rem 1rem 0.5rem 1rem;
     cursor: pointer;
     border-left: var(--crt-bg) 2px solid;
+    text-decoration: none;
 }
 
-.menu-item:hover {
+.menu-item:hover, .menu-item>a:hover{
     background-color: var(--crt-bg);
     color: var(--crt-amber)
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: var(--crt-bg)
 }
 
 main {

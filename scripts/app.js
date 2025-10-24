@@ -19,11 +19,18 @@ menuItems.forEach((menuItem) => {
 // Menu Toggling
 const menuIcon = document.getElementById('menu-icon')
 menuIcon.addEventListener('click', toggleMenu);
+document.body.addEventListener('click', function(e) {
+    if (menuIcon.className != 'menu-icon-active') return;
+
+    if (e.target != menuIcon) {
+        toggleMenu();
+    }
+})
 
 function toggleMenu() {
     const menuElem = document.getElementById('start-menu');
     if (menuElem.classList.contains('menu-hidden')) {
-        menuIcon.className = ' menu-icon-active'
+        menuIcon.className = 'menu-icon-active'
         menuElem.className = 'menu glow';
     } else {
         menuIcon.className = '';

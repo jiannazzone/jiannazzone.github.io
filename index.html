@@ -27,19 +27,19 @@
             <div class="menu-section">
                 <div class="menu-section-header">iOS Apps</div>
                 <div class="menu-item" data-parent="calcusplit-window">CalcuSplit</div>
-                <div class="menu-item">CalcuRun</div>
-                <div class="menu-item">LetterCode</div>
-                <div class="menu-item">Fanficul Fonts</div>
+                <div class="menu-item" data-parent="calcurun-window">CalcuRun</div>
+                <div class="menu-item" data-parent="lettercode-window">LetterCode</div>
+                <div class="menu-item" data-parent="fanciful-fonts-window">Fanficul Fonts</div>
             </div>
 
             <div class="menu-section">
                 <div class="menu-section-header">External Links</div>
-                <div class="menu-item">Github</div>
-                <div class="menu-item" data-parent="on-air-window">On-Air</div>
+                <div class="menu-item"><a href="https://github.com/jiannazzone" target="_blank" rel="noopener noreferrer">Github</a></div>
+                        <!-- <div class="menu-item" data-parent="on-air-window">On-Air</div> -->
+                </div>
             </div>
-        </div>
 
-        <div id="clock"></div>
+            <div id="clock"></div>
     </header>
     <!-- End Menu Bar -->
 
@@ -137,41 +137,54 @@
                 <div class="app-screenshot-container">
                     <img class="app-screenshot glow" src="assets/calcusplit/calcusplit-1.png" />
                     <img class="app-screenshot glow" src="assets/calcusplit/calcusplit-2.png" />
+                    <img class="app-screenshot glow" src="assets/calcusplit/calcusplit-3.png" />
                 </div>
 
                 <!-- Privacy Policy -->
-                <h2><a class="keyword glow privacy-button" data-toggle-target="calcusplit-privacy-policy" href="#">Privacy Policy</a></h2>
+                <h2><a class="keyword glow privacy-button" data-toggle-target="calcusplit-privacy-policy"
+                        href="#">Privacy Policy</a></h2>
                 <div class="privacy-policy privacy-policy-hidden" id="calcusplit-privacy-policy">
                     <p>Joseph Iannazzone built the CalcuSplit app as a Free app with In-App Purchases. This service is
-                    provided by Joseph Iannazzone at no cost and is intended for use as is. This page is used to inform
-                    visitors regarding my policies with the collection, use, and disclosure of Personal Information if
-                    anyone decided to use my Service. If you choose to use my Service, then you agree to the collection
-                    and use of information in relation to this policy.</p>
-                    
+                        provided by Joseph Iannazzone at no cost and is intended for use as is. This page is used to
+                        inform
+                        visitors regarding my policies with the collection, use, and disclosure of Personal Information
+                        if
+                        anyone decided to use my Service. If you choose to use my Service, then you agree to the
+                        collection
+                        and use of information in relation to this policy.</p>
+
                     <h4>Information Collection and Use</h4>
-                    <p>No information is collected during the use of this app. All calculations, storage, and other related
-                    logic happens on the device. If you delete the app, your data is deleted in the manner dictated by
-                    your device. If you choose to purchase CalcuSplit Premium, data will be written to your device's
-                    storage indicating as such. If you choose to Restore Purchase, the device will contact Apple's
-                    servers to authenticate the previous purchase.
-                    Links to Other Sites</p>
+                    <p>No information is collected during the use of this app. All calculations, storage, and other
+                        related
+                        logic happens on the device. If you delete the app, your data is deleted in the manner dictated
+                        by
+                        your device. If you choose to purchase CalcuSplit Premium, data will be written to your device's
+                        storage indicating as such. If you choose to Restore Purchase, the device will contact Apple's
+                        servers to authenticate the previous purchase.</p>
+
+                    <h4>Links to Other Sites</h4>
 
                     <p>This Service may contain links to other sites. If you click on a third-party link, you will be
-                    directed to that site. Note that these external sites are not operated by me. Therefore, I strongly
-                    advise you to review the Privacy Policy of these websites. I have no control over and assume no
-                    responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
-                    
+                        directed to that site. Note that these external sites are not operated by me. Therefore, I
+                        strongly
+                        advise you to review the Privacy Policy of these websites. I have no control over and assume no
+                        responsibility for the content, privacy policies, or practices of any third-party sites or
+                        services.</p>
+
                     <h4>Changes to This Privacy Policy</h4>
                     <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page
-                    periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on
-                    this page.</p>
-                    
+                        periodically for any changes. I will notify you of any changes by posting the new Privacy Policy
+                        on
+                        this page.</p>
+
                     <h4>Contact Us</h4>
-                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at
-                    <a class="keyword glow" href="mailto:calcuapps@iannaz.zone">calcuapps@iannaz.zone.</a></p>
+                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me
+                        at
+                        <a class="keyword glow" href="mailto:calcuapps@iannaz.zone">calcuapps@iannaz.zone.</a>
+                    </p>
 
                     <p>This privacy policy page was created at Privacy Policy Template and modified/generated by App
-                    Privacy Policy Generator. Effective as of 2021-04-21.</p>
+                        Privacy Policy Generator. Effective as of 2021-04-21.</p>
                 </div>
                 <!-- End Privacy Policy -->
             </div>
@@ -182,7 +195,7 @@
         <div class="window glow draggable window-closed" id="calcurun-window">
             <div class="window-header" data-parent="on-air-window">
                 <div class="window-title">
-                    on-air.txt
+                    calcurun.txt
                 </div>
                 <div class="window-button-container">
                     <div class="window-taskbar window-button" data-parent="calcurun-window">
@@ -200,12 +213,76 @@
                 </div>
             </div>
             <div class="window-body">
-                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
-                <p id="on-air-details"></p>
-                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank"
-                        rel="noopener noreferrer">
-                        Find me on QRZ
-                    </a></h3>
+
+                <!-- App Details -->
+                <h2><a class="keyword glow" href="https://apps.apple.com/us/app/calcurun/id1554474187 target=" _blank"
+                        rel="noopener noreferrer">CalcuRun</a> is your personal running training and tracking companion.
+                    And
+                    it's totally free!
+                </h2>
+                <p>
+                    Just put in your most recent race data, and CalcuRun will use a science-based formula to predict how
+                    well you'll do in other events. It even provides training paces!
+                </p>
+                <p>
+                    You can also view your historical trends; the app will normalize all of your races, regardless of
+                    distance to compare efforts and track your overall fitness.
+                </p>
+                <h2 class="app-store-link"><a class="keyword glow"
+                        href="https://apps.apple.com/us/app/calcurun/id1554474187" target="_blank"
+                        rel="noopener noreferrer">Get it on the iOS App Store!</a></h2>
+
+                <!-- Screenshots -->
+                <div class="app-screenshot-container">
+                    <img class="app-screenshot glow" src="assets/calcurun/calcurun-1.png" />
+                    <img class="app-screenshot glow" src="assets/calcurun/calcurun-2.png" />
+                    <img class="app-screenshot glow" src="assets/calcurun/calcurun-3.png" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <h2><a class="keyword glow privacy-button" data-toggle-target="calcurun-privacy-policy" href="#">Privacy
+                        Policy</a></h2>
+                <div class="privacy-policy privacy-policy-hidden" id="calcurun-privacy-policy">
+                    <p>Joseph Iannazzone built the CalcuRun app as a Free app. This service is provided by Joseph
+                        Iannazzone at no cost and is intended for use as is. This page is used to inform visitors
+                        regarding my policies with the collection, use, and disclosure of Personal Information if anyone
+                        decided to use my Service. If you choose to use my Service, then you agree to the collection and
+                        use of information in relation to this policy.</p>
+
+                    <h4>Information Collection and Use</h4>
+                    <p>No information is collected during the use of this app. All calculations, storage, and other
+                        related
+                        logic happens on the device. If you delete the app, your data is deleted in the manner dictated
+                        by
+                        your device. If you choose to buy any in-app purchases, data will be written to your device's
+                        storage indicating as such. If you choose to Restore Purchase, the device will contact Apple's
+                        servers to authenticate the previous purchase.</p>
+
+                    <h4>Links to Other Sites</h4>
+
+                    <p>This Service may contain links to other sites. If you click on a third-party link, you will be
+                        directed to that site. Note that these external sites are not operated by me. Therefore, I
+                        strongly
+                        advise you to review the Privacy Policy of these websites. I have no control over and assume no
+                        responsibility for the content, privacy policies, or practices of any third-party sites or
+                        services.</p>
+
+                    <h4>Changes to This Privacy Policy</h4>
+                    <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page
+                        periodically for any changes. I will notify you of any changes by posting the new Privacy Policy
+                        on
+                        this page.</p>
+
+                    <h4>Contact Us</h4>
+                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me
+                        at
+                        <a class="keyword glow" href="mailto:calcuapps@iannaz.zone">calcuapps@iannaz.zone.</a>
+                    </p>
+
+                    <p>This privacy policy page was created at Privacy Policy Template and modified/generated by App
+                        Privacy Policy Generator. Effective as of 2021-02-21.</p>
+                </div>
+                <!-- End Privacy Policy -->
             </div>
         </div>
         <!-- End CalcuRun -->
@@ -214,7 +291,7 @@
         <div class="window glow draggable window-closed" id="lettercode-window">
             <div class="window-header" data-parent="on-air-window">
                 <div class="window-title">
-                    on-air.txt
+                    lettercode.txt
                 </div>
                 <div class="window-button-container">
                     <div class="window-taskbar window-button" data-parent="lettercode-window">
@@ -232,21 +309,86 @@
                 </div>
             </div>
             <div class="window-body">
-                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
-                <p id="on-air-details"></p>
-                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank"
-                        rel="noopener noreferrer">
-                        Find me on QRZ
-                    </a></h3>
+                <!-- App Details -->
+                <h2>Become a code-breaking master with <a class="keyword glow"
+                        href="https://apps.apple.com/us/app/lettercode/id1603512717" _blank"
+                        rel="noopener noreferrer">LetterCode</a>, a twist on the classic code-breaking formula.
+                </h2>
+                <p>
+                    A twist on the classic puzzle game, you have to guess the word before running out of chances. But
+                    don't take too long; the faster you solve, the more points you'll get!
+                </p>
+                <p>
+                    LetterCode is free to play 5x per day, but a one-time purchase will unlock unlimited plays and
+                    higher difficulties. You can also see your stats, notable victories, and more!
+                </p>
+                <p>
+                    The app also includes colorblind-friendly options, plus various play-style accessibility options.
+                </p>
+                <h2 class="app-store-link"><a class="keyword glow"
+                        href="https://apps.apple.com/us/app/lettercode/id1603512717" target="_blank"
+                        rel="noopener noreferrer">Get it on the iOS App Store!</a></h2>
+
+                <!-- Screenshots -->
+                <div class="app-screenshot-container">
+                    <img class="app-screenshot glow" src="assets/lettercode/lettercode-1.png" />
+                    <img class="app-screenshot glow" src="assets/lettercode/lettercode-2.png" />
+                    <img class="app-screenshot glow" src="assets/lettercode/lettercode-3.png" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <h2><a class="keyword glow privacy-button" data-toggle-target="lettercode-privacy-policy"
+                        href="#">Privacy
+                        Policy</a></h2>
+                <div class="privacy-policy privacy-policy-hidden" id="lettercode-privacy-policy">
+                    <p> Joseph Iannazzone built the LetterCode app as a Free app with In-App Purchases. This service is
+                        provided by Joseph Iannazzone at no cost and is intended for use as is. This page is used to
+                        inform visitors regarding my policies with the collection, use, and disclosure of Personal
+                        Information if anyone decided to use my Service. If you choose to use my Service, then you agree
+                        to the collection and use of information in relation to this policy.
+                    </p>
+
+                    <h4>Information Collection and Use</h4>
+                    <p> No information is collected during the use of this app. All calculations, storage, and other
+                        related logic happens on the device. If you delete the app, your data is deleted in the manner
+                        dictated by your device. If you choose to purchase LetterCode Pro, data will be written to your
+                        device's storage indicating as such. If you choose to Restore Purchase, the device will contact
+                        Apple's servers to authenticate the previous purchase. </p>
+
+                    <h4>Links to Other Sites</h4>
+
+                    <p>This Service may contain links to other sites. If you click on a third-party link, you will be
+                        directed to that site. Note that these external sites are not operated by me. Therefore, I
+                        strongly
+                        advise you to review the Privacy Policy of these websites. I have no control over and assume no
+                        responsibility for the content, privacy policies, or practices of any third-party sites or
+                        services.</p>
+
+                    <h4>Changes to This Privacy Policy</h4>
+                    <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page
+                        periodically for any changes. I will notify you of any changes by posting the new Privacy Policy
+                        on
+                        this page.</p>
+
+                    <h4>Contact Us</h4>
+                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me
+                        at
+                        <a class="keyword glow" href="mailto:calcuapps@iannaz.zone">calcuapps@iannaz.zone.</a>
+                    </p>
+
+                    <p>This privacy policy page was created at Privacy Policy Template and modified/generated by App
+                        Privacy Policy Generator. Effective as of 2022-01-12.</p>
+                </div>
+                <!-- End Privacy Policy -->
             </div>
         </div>
         <!-- End Lettercode -->
 
         <!-- Fanciful Fonts -->
         <div class="window glow draggable window-closed" id="fanciful-fonts-window">
-            <div class="window-header" data-parent="on-air-window">
+            <div class="window-header" data-parent="fanciful-fonts-window">
                 <div class="window-title">
-                    on-air.txt
+                    fanciful-fonts.txt
                 </div>
                 <div class="window-button-container">
                     <div class="window-taskbar window-button" data-parent="fanciful-fonts-window">
@@ -263,13 +405,72 @@
                     </div>
                 </div>
             </div>
+
             <div class="window-body">
-                <h2>K2CAT is currently <span class="keyword glow" id="on-air-status">off-air</span></h2>
-                <p id="on-air-details"></p>
-                <h3><a class="keyword glow" href="https://www.qrz.com/db/K2CAT" target="_blank"
-                        rel="noopener noreferrer">
-                        Find me on QRZ
-                    </a></h3>
+                <!-- App Details -->
+                <h2><a class="keyword glow" href="https://apps.apple.com/us/app/fanciful-fonts/id6446179951" _blank"
+                        rel="noopener noreferrer">Fanciful Fonts</a> will add spice and chaos to your messages.
+                </h2>
+                <p>
+                    Add ridiculous, 🅄🄽🄸🅀🅄🄴 Unicode-friendly fonts. They'll work in any app, so terrorize your
+                    friends and family in iMessage, WhatsApp, Messenger, and more.
+                </p>
+                <p>
+                    If you use iMessage, you can insert ä̱́ṉ̈́ÿ̱́ṯ̈́ẖ̈́ḯ̱ṉ̈́g̱̈́ ÿ̱́ö̱́ǘ̱ ḻ̈́ḯ̱ḵ̈́ë̱́ with a single
+                    tap using the iMessage extension.
+                </p>
+                <h2 class="app-store-link"><a class="keyword glow"
+                        href="https://apps.apple.com/us/app/fanciful-fonts/id6446179951" target="_blank"
+                        rel="noopener noreferrer">Get it on the iOS App Store!</a></h2>
+
+                <!-- Screenshots -->
+                <div class="app-screenshot-container">
+                    <img class="app-screenshot glow" src="assets/fanciful/fanciful-1.png" />
+                    <img class="app-screenshot glow" src="assets/fanciful/fanciful-2.png" />
+                    <img class="app-screenshot glow" src="assets/fanciful/fanciful-3.png" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <h2><a class="keyword glow privacy-button" data-toggle-target="fanciful-fonts-privacy-policy"
+                        href="#">Privacy
+                        Policy</a></h2>
+                <div class="privacy-policy privacy-policy-hidden" id="fanciful-fonts-privacy-policy">
+                    <p>Joseph Iannazzone built the Fanciful Fonts app as a Free app. This service is provided by Joseph
+                        Iannazzone at no cost and is intended for use as is. This page is used to inform visitors
+                        regarding my policies with the collection, use, and disclosure of Personal Information if anyone
+                        decided to use my Service. If you choose to use my Service, then you agree to the collection and
+                        use of information in relation to this policy.</p>
+
+                    <h4>Information Collection and Use</h4>
+                    <p> No information is collected during the use of this app. All calculations, storage, and other
+                        related logic happens on the device. If you delete the app, your data is deleted in the manner
+                        dictated by your device. </p>
+
+                    <h4>Links to Other Sites</h4>
+
+                    <p>This Service may contain links to other sites. If you click on a third-party link, you will be
+                        directed to that site. Note that these external sites are not operated by me. Therefore, I
+                        strongly
+                        advise you to review the Privacy Policy of these websites. I have no control over and assume no
+                        responsibility for the content, privacy policies, or practices of any third-party sites or
+                        services.</p>
+
+                    <h4>Changes to This Privacy Policy</h4>
+                    <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page
+                        periodically for any changes. I will notify you of any changes by posting the new Privacy Policy
+                        on
+                        this page.</p>
+
+                    <h4>Contact Us</h4>
+                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me
+                        at
+                        <a class="keyword glow" href="mailto:calcuapps@iannaz.zone">calcuapps@iannaz.zone.</a>
+                    </p>
+
+                    <p>This privacy policy page was created at Privacy Policy Template and modified/generated by App
+                        Privacy Policy Generator. Effective as of 2023-03-10.</p>
+                </div>
+                <!-- End Privacy Policy -->
             </div>
         </div>
         <!-- End Fanciful Fonts -->
@@ -332,7 +533,7 @@
                 lettercode.txt
             </div>
 
-            <div class="taskbar-item taskbar-closed" data-parent="fanficul-fonts-window">
+            <div class="taskbar-item taskbar-closed" data-parent="fanciful-fonts-window">
                 fanciful-fonts.txt
             </div>
 
