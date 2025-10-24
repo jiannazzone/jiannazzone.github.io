@@ -5,7 +5,6 @@
     background: var(--crt-bg);
     display: flex;
     flex-direction: column;
-    min-height: fit-content;
     height: 66%;
     width: 66%;
     max-width: 1000px;
