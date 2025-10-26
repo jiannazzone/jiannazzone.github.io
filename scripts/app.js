@@ -9,6 +9,38 @@ const windowElems = document.querySelectorAll('.window');
 const menuItems = document.querySelectorAll('.menu-item');
 let windowOpenIndex = 2;
 
+// Change layout for window sizing
+let compactWindow = false;
+onResize(function() {
+    const width = getWidth();
+    if (width < 768) {
+        compactWindow = true;
+        // Need to fullscreen windows
+        
+    } else {
+        compactWindow = false;
+    }
+    console.log(`Compact Window: ${compactWindow}`);
+})();
+
+function onResize(c, t) {
+    onresize = function () {
+        clearTimeout(t);
+        t = setTimeout(c, 100);
+    };
+    return c
+} // onResize
+
+function getWidth() {
+    return Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+    );
+} // getWidth
+
 // App routing for incoming URLs
 let parsingComplete = false;
 if (!parsingComplete) { parseURL(); }
@@ -22,17 +54,16 @@ function parseURL() {
         const windowElem = document.getElementById(`${destination}-window`);
         setTimeout(function () {
             switchWindow(windowElem);
-        }, delay*count);
+        }, delay * count);
         count++;
     });
 
     parsingComplete = true;
-}
-
+} // parseURL
 
 // Menu Selection Logic
 menuItems.forEach((menuItem) => {
-    menuItem.addEventListener('click', function(e) {
+    menuItem.addEventListener('click', function (e) {
         switchWindow(menuItem);
     });
 });
@@ -40,7 +71,7 @@ menuItems.forEach((menuItem) => {
 // Menu Toggling
 const menuIcon = document.getElementById('menu-icon')
 menuIcon.addEventListener('click', toggleMenu);
-document.body.addEventListener('click', function(e) {
+document.body.addEventListener('click', function (e) {
     if (menuIcon.className != 'menu-icon-active') return;
 
     if (e.target != menuIcon) {
@@ -61,12 +92,12 @@ function toggleMenu() {
 
 // Window Switching Logic
 taskbarItems.forEach((taskbarItem) => {
-    taskbarItem.addEventListener('click', function(e) {
+    taskbarItem.addEventListener('click', function (e) {
         switchWindow(taskbarItem)
     });
 });
 windowElems.forEach((windowElem) => {
-    windowElem.addEventListener('click', function(e) {
+    windowElem.addEventListener('click', function (e) {
         if (e.target.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
         switchWindow(windowElem);
     });
@@ -87,7 +118,7 @@ function focusWindow(windowElem) {
     if (!taskbarElem.className.includes('taskbar-active')) {
         taskbarElem.className += ' taskbar-active'
     }
-    taskbarElem.className = taskbarElem.className.replace('taskbar-closed','');
+    taskbarElem.className = taskbarElem.className.replace('taskbar-closed', '');
 } // focusWindow
 
 function defocusWindow(windowElem) {
@@ -96,7 +127,7 @@ function defocusWindow(windowElem) {
 
     if (taskbarElem == null) return;
     windowElem.className = windowElem.className.replace('window-active', '');
-    taskbarElem.className = taskbarElem.className.replace('taskbar-active','');
+    taskbarElem.className = taskbarElem.className.replace('taskbar-active', '');
 } //defocusWindow
 
 function switchWindow(elem) {
@@ -111,11 +142,11 @@ function switchWindow(elem) {
             } else {
                 defocusWindow(thisWindow);
             }
-        
-        // User has selected a taskbarItem or window
+
+            // User has selected a taskbarItem or window
         } else if (elem == taskbarItem || elem.id == taskbarParentID) {
             // Make active window (if not already)
-            if (!thisWindow.className.includes('window-active')){
+            if (!thisWindow.className.includes('window-active')) {
                 focusWindow(thisWindow);
             } // if
         } else {
@@ -126,7 +157,7 @@ function switchWindow(elem) {
 
 // Close Windows
 closeButtonElems.forEach((el) => {
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function () {
         closeWindow(el);
     });
 });
@@ -134,7 +165,7 @@ closeButtonElems.forEach((el) => {
 function closeWindow(button) {
     const windowElem = document.getElementById(button.dataset.parent);
     windowElem.style.display = 'none';
-    taskbarItems.forEach((el) =>{
+    taskbarItems.forEach((el) => {
         if (el.dataset.parent == windowElem.id) {
             el.style.display = 'none';
         }
@@ -143,7 +174,7 @@ function closeWindow(button) {
 
 // Maximize Windows
 maxButtonElems.forEach((el) => {
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function () {
         maximizeWindow(el);
     });
 });
@@ -172,7 +203,7 @@ function maximizeWindow(button) {
 
 // Minimize Windows
 minButtonElems.forEach((el) => {
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function () {
         minimizeWindow(el)
     })
 });
@@ -193,7 +224,7 @@ function minimizeWindow(button) {
 
 // Minimize to Taskbar
 toTaskbarButtonElems.forEach((toTaskbarButton) => {
-    toTaskbarButton.addEventListener('click', function() {
+    toTaskbarButton.addEventListener('click', function () {
         reduceToTaskbar(toTaskbarButton);
     });
 });
@@ -202,7 +233,7 @@ function reduceToTaskbar(button) {
     const windowElem = document.getElementById(button.dataset.parent);
     windowElem.className = 'window glow draggable window-in-taskbar';
 
-    taskbarItems.forEach((taskbarItem) =>{      
+    taskbarItems.forEach((taskbarItem) => {
         if (!taskbarItem.classList.contains('taskbar-closed')) {
             taskbarItem.className = 'taskbar-item';
         }
@@ -242,9 +273,9 @@ document.querySelectorAll('.window-header').forEach(header => {
 // Privacy Policy Toggles
 const privacyButtons = document.querySelectorAll('.privacy-button');
 privacyButtons.forEach((button) => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         const privacyPolicy = document.getElementById(button.dataset.toggleTarget)
-        
+
         if (privacyPolicy.classList.contains('privacy-policy-hidden')) {
             privacyPolicy.classList = 'privacy-policy';
         } else {
