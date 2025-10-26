@@ -51,9 +51,8 @@ function parseURL() {
     let delay = 500;
     let count = 0;
     destinations.forEach((destination) => {
-        const windowElem = document.getElementById(`${destination}-window`);
         setTimeout(function () {
-            switchWindow(windowElem);
+            switchWindow(`${destination}-window`);
         }, delay * count);
         count++;
     });
@@ -64,7 +63,7 @@ function parseURL() {
 // Menu Selection Logic
 menuItems.forEach((menuItem) => {
     menuItem.addEventListener('click', function (e) {
-        switchWindow(menuItem);
+        switchWindow(menuItem.dataset.parent);
     });
 });
 
@@ -93,9 +92,10 @@ function toggleMenu() {
 // Window Switching Logic
 taskbarItems.forEach((taskbarItem) => {
     taskbarItem.addEventListener('click', function (e) {
-        switchWindow(taskbarItem)
+        switchWindow(taskbarItem.dataset.parent);
     });
 });
+
 windowElems.forEach((windowElem) => {
     windowElem.addEventListener('click', function (e) {
         if (e.target.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
@@ -130,43 +130,53 @@ function defocusWindow(windowElem) {
     taskbarElem.className = taskbarElem.className.replace('taskbar-active', '');
 } //defocusWindow
 
-function switchWindow(elem) {
-    taskbarItems.forEach((taskbarItem) => {
-        const taskbarParentID = taskbarItem.dataset.parent;
-        const thisWindow = document.getElementById(taskbarParentID);
-
-        // User has selected an item from the menu
-        if (elem.classList.contains('menu-item')) {
-            if (elem.dataset.parent == taskbarParentID) {
-                focusWindow(thisWindow);
-            } else {
-                defocusWindow(thisWindow);
-            }
-
-            // User has selected a taskbarItem or window
-        } else if (elem == taskbarItem || elem.id == taskbarParentID) {
-            // Make active window (if not already)
-            if (!thisWindow.className.includes('window-active')) {
-                focusWindow(thisWindow);
-            } // if
+function switchWindow(windowID) {
+    windowElems.forEach((windowElem) => {
+        if (windowElem.id == windowID) {
+            console.log(windowID);
+            focusWindow(windowElem);
         } else {
-            defocusWindow(thisWindow);
+            defocusWindow(windowElem);
         }
     });
+
+    // taskbarItems.forEach((taskbarItem) => {
+    //     const thisWindow = document.getElementById(windowID);
+
+    //     focusWindow(document.getElementById(windowID));
+
+    //     // User has selected an item from the menu
+    //     if (elem.classList.contains('menu-item')) {
+    //         if (elem.dataset.parent == taskbarParentID) {
+    //             focusWindow(thisWindow);
+    //         } else {
+    //             defocusWindow(thisWindow);
+    //         }
+
+    //         // User has selected a taskbarItem or window
+    //     } else if (elem == taskbarItem || elem.id == taskbarParentID) {
+    //         // Make active window (if not already)
+    //         if (!thisWindow.className.includes('window-active')) {
+    //             focusWindow(thisWindow);
+    //         } // if
+    //     } else {
+    //         defocusWindow(thisWindow);
+    //     }
+    // });
 } // switchWindow
 
 // Close Windows
 closeButtonElems.forEach((el) => {
     el.addEventListener('click', function () {
-        closeWindow(el);
+        closeWindow(el.dataset.parent);
     });
 });
 
-function closeWindow(button) {
-    const windowElem = document.getElementById(button.dataset.parent);
+function closeWindow(windowID) {
+    const windowElem = document.getElementById(windowID);
     windowElem.style.display = 'none';
     taskbarItems.forEach((el) => {
-        if (el.dataset.parent == windowElem.id) {
+        if (el.dataset.parent == windowID) {
             el.style.display = 'none';
         }
     })
@@ -248,7 +258,7 @@ document.querySelectorAll('.window-header').forEach(header => {
     header.addEventListener('pointerdown', e => {
         if (e.target.closest('.window-button')) return;
         if (!e.target.closest('.window').className.includes('draggable')) return;
-        switchWindow(windowEl);
+        switchWindow(windowEl.id);
 
         isDragging = true;
         const rect = windowEl.getBoundingClientRect();
