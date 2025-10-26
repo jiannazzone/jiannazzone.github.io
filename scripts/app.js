@@ -139,30 +139,6 @@ function switchWindow(windowID) {
             defocusWindow(windowElem);
         }
     });
-
-    // taskbarItems.forEach((taskbarItem) => {
-    //     const thisWindow = document.getElementById(windowID);
-
-    //     focusWindow(document.getElementById(windowID));
-
-    //     // User has selected an item from the menu
-    //     if (elem.classList.contains('menu-item')) {
-    //         if (elem.dataset.parent == taskbarParentID) {
-    //             focusWindow(thisWindow);
-    //         } else {
-    //             defocusWindow(thisWindow);
-    //         }
-
-    //         // User has selected a taskbarItem or window
-    //     } else if (elem == taskbarItem || elem.id == taskbarParentID) {
-    //         // Make active window (if not already)
-    //         if (!thisWindow.className.includes('window-active')) {
-    //             focusWindow(thisWindow);
-    //         } // if
-    //     } else {
-    //         defocusWindow(thisWindow);
-    //     }
-    // });
 } // switchWindow
 
 // Close Windows
@@ -241,7 +217,11 @@ toTaskbarButtonElems.forEach((toTaskbarButton) => {
 
 function reduceToTaskbar(button) {
     const windowElem = document.getElementById(button.dataset.parent);
-    windowElem.className = 'window glow draggable window-in-taskbar';
+    if (windowElem.classList.contains('window-max')) {
+        windowElem.className = 'window glow draggable window-max window-in-taskbar';
+    } else {
+        windowElem.className = 'window glow draggable window-in-taskbar';
+    }
 
     taskbarItems.forEach((taskbarItem) => {
         if (!taskbarItem.classList.contains('taskbar-closed')) {
