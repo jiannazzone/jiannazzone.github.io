@@ -6,8 +6,29 @@ const toTaskbarButtonElems = document.querySelectorAll('.window-taskbar');
 
 const taskbarItems = document.querySelectorAll('.taskbar-item');
 const windowElems = document.querySelectorAll('.window');
-
 const menuItems = document.querySelectorAll('.menu-item');
+let windowOpenIndex = 2;
+
+// App routing for incoming URLs
+let parsingComplete = false;
+if (!parsingComplete) { parseURL(); }
+
+function parseURL() {
+    const incomingURL = window.location.href;
+    const destinations = incomingURL.split('#').splice(1);
+    let delay = 500;
+    let count = 0;
+    destinations.forEach((destination) => {
+        const windowElem = document.getElementById(`${destination}-window`);
+        setTimeout(function () {
+            switchWindow(windowElem);
+        }, delay*count);
+        count++;
+    });
+
+    parsingComplete = true;
+}
+
 
 // Menu Selection Logic
 menuItems.forEach((menuItem) => {
@@ -58,6 +79,8 @@ function focusWindow(windowElem) {
     }
     windowElem.className = windowElem.className.replace('window-in-taskbar', '');
     windowElem.className = windowElem.className.replace('window-closed', '');
+    windowElem.style.zIndex = windowOpenIndex;
+    windowOpenIndex++;
 
     // Find paired taskbar and focus it
     const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
@@ -165,7 +188,7 @@ function minimizeWindow(button) {
 
     // Adjust styles
     const windowElem = document.getElementById(button.dataset.parent);
-    windowElem.className = 'window glow draggable';
+    windowElem.className = 'window glow draggable window-active';
 }
 
 // Minimize to Taskbar

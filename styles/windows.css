@@ -9,14 +9,14 @@
     width: 66%;
     max-width: 1000px;
     scale: 1.0;
-    z-index: 2;
+    /* z-index: 2; */
     transition: none !important;
     will-change: transform, left, top;
     will-change: display;
 }
 
 .window-active {
-    z-index: 10;
+    z-index: 10 !important;
 }
 
 .window-max {
