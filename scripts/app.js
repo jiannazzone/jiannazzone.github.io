@@ -7,20 +7,40 @@ const toTaskbarButtonElems = document.querySelectorAll('.window-taskbar');
 const taskbarItems = document.querySelectorAll('.taskbar-item');
 const windowElems = document.querySelectorAll('.window');
 const menuItems = document.querySelectorAll('.menu-item');
-let windowOpenIndex = 2;
 
 // Change layout for window sizing
-let compactWindow = false;
+let width = getWidth();
+let compactWindow = getWidth() < 768;
+
 onResize(function() {
-    const width = getWidth();
+    width = getWidth();
     if (width < 768) {
+        maxButtonElems.forEach((button) => {
+            button.classList.add('window-button-hidden');
+        });
+        toTaskbarButtonElems.forEach((button) => {
+            button.classList.add('window-button-hidden');
+        });
+
+        if (compactWindow) return;
+        windowElems.forEach((windowElem) => {
+            if (windowElem.classList.contains('window-active')) {
+                maximizeWindow(document.querySelector(`.window-max[data-parent=${windowElem.id}`));
+            } else {
+                closeWindow(windowElem.id);
+            }
+        });
         compactWindow = true;
-        // Need to fullscreen windows
-        
     } else {
-        compactWindow = false;
+        if (!compactWindow) return;
+        minButtonElems.forEach((button) => {
+            button.classList = button.classList.remove('window-button-hidden');
+        });
+        toTaskbarButtonElems.forEach((button) => {
+            button.classList = button.classList.remove('window-button-hidden');
+        });
+        compactWindow = false
     }
-    console.log(`Compact Window: ${compactWindow}`);
 })();
 
 function onResize(c, t) {
@@ -42,28 +62,36 @@ function getWidth() {
 } // getWidth
 
 // App routing for incoming URLs
-let parsingComplete = false;
-if (!parsingComplete) { parseURL(); }
-
 function parseURL() {
     const incomingURL = window.location.href;
     const destinations = incomingURL.split('#').splice(1);
+    if (destinations.length == 0 && compactWindow) {
+        maximizeWindow(document.querySelector('.window-max[data-parent=welcome-window'));
+    }
+
     let delay = 500;
     let count = 0;
+    let skipRemaining = false;
     destinations.forEach((destination) => {
-        setTimeout(function () {
-            switchWindow(`${destination}-window`);
-        }, delay * count);
-        count++;
+        if (!skipRemaining) {
+            setTimeout(function () {
+                switchWindow(`${destination}-window`);
+                if (compactWindow) {
+                    skipRemaining = true;
+                }
+            }, delay * count);
+            count++;
+        }
     });
-
-    parsingComplete = true;
 } // parseURL
+
+parseURL();
 
 // Menu Selection Logic
 menuItems.forEach((menuItem) => {
-    menuItem.addEventListener('click', function (e) {
+    menuItem.addEventListener('click', function () {
         switchWindow(menuItem.dataset.parent);
+        toggleMenu();
     });
 });
 
@@ -80,13 +108,7 @@ document.body.addEventListener('click', function (e) {
 
 function toggleMenu() {
     const menuElem = document.getElementById('start-menu');
-    if (menuElem.classList.contains('menu-hidden')) {
-        menuIcon.className = 'menu-icon-active'
-        menuElem.className = 'menu glow';
-    } else {
-        menuIcon.className = '';
-        menuElem.className = 'menu glow menu-hidden';
-    }
+    menuElem.classList.toggle('menu-hidden');
 }
 
 // Window Switching Logic
@@ -99,26 +121,20 @@ taskbarItems.forEach((taskbarItem) => {
 windowElems.forEach((windowElem) => {
     windowElem.addEventListener('click', function (e) {
         if (e.target.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
-        switchWindow(windowElem);
+        switchWindow(windowElem.id);
     });
 });
 
 
 function focusWindow(windowElem) {
-    if (!windowElem.className.includes('window-active')) {
-        windowElem.className += ' window-active';
-    }
-    windowElem.className = windowElem.className.replace('window-in-taskbar', '');
-    windowElem.className = windowElem.className.replace('window-closed', '');
-    windowElem.style.zIndex = windowOpenIndex;
-    windowOpenIndex++;
+    windowElem.classList.add('window-active');
+    windowElem.classList.remove('window-in-taskbar');
+    windowElem.classList.remove('window-closed');
 
     // Find paired taskbar and focus it
     const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
-    if (!taskbarElem.className.includes('taskbar-active')) {
-        taskbarElem.className += ' taskbar-active'
-    }
-    taskbarElem.className = taskbarElem.className.replace('taskbar-closed', '');
+    taskbarElem.classList.add('taskbar-active');
+    taskbarElem.classList.remove('taskbar-closed');
 } // focusWindow
 
 function defocusWindow(windowElem) {
@@ -126,19 +142,29 @@ function defocusWindow(windowElem) {
     const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
 
     if (taskbarElem == null) return;
-    windowElem.className = windowElem.className.replace('window-active', '');
-    taskbarElem.className = taskbarElem.className.replace('taskbar-active', '');
+    windowElem.classList.remove('window-active');
+    taskbarElem.classList.remove('taskbar-active');
 } //defocusWindow
 
 function switchWindow(windowID) {
-    windowElems.forEach((windowElem) => {
-        if (windowElem.id == windowID) {
-            console.log(windowID);
-            focusWindow(windowElem);
-        } else {
-            defocusWindow(windowElem);
-        }
-    });
+    if (compactWindow) {
+        windowElems.forEach((windowElem) => {
+            if (windowElem.id == windowID) {
+                focusWindow(windowElem);
+                maximizeWindow(document.querySelector(`.window-max[data-parent=${windowID}`));
+            } else {
+                closeWindow(windowElem.id);
+            }
+        });
+    } else {
+        windowElems.forEach((windowElem) => {
+            if (windowElem.id == windowID) {
+                focusWindow(windowElem);
+            } else {
+                defocusWindow(windowElem);
+            }
+        });
+    }
 } // switchWindow
 
 // Close Windows
@@ -149,13 +175,11 @@ closeButtonElems.forEach((el) => {
 });
 
 function closeWindow(windowID) {
+    console.log(windowID);
     const windowElem = document.getElementById(windowID);
-    windowElem.style.display = 'none';
-    taskbarItems.forEach((el) => {
-        if (el.dataset.parent == windowID) {
-            el.style.display = 'none';
-        }
-    })
+    const taskbarElem = document.querySelector(`.taskbar-item[data-parent=${windowID}]`);
+    windowElem.className = 'window glow draggable window-closed';
+    taskbarElem.className = 'taskbar-item taskbar-closed';
 } // closeWindow
 
 // Maximize Windows
@@ -168,20 +192,20 @@ maxButtonElems.forEach((el) => {
 function maximizeWindow(button) {
     // Swap button visibility
     minButtonElems.forEach((el) => {
-        if (el.dataset.parent == button.dataset.parent) {
+        if (el.dataset.parent == button.dataset.parent && !compactWindow) {
             el.className = 'window-min window-button';
         }
     });
-    button.className += ' window-button-hidden';
+    button.classList.add('window-button-hidden');
 
     // Adjust styles
     const windowElem = document.getElementById(button.dataset.parent);
     windowElems.forEach((el) => {
         if (el == windowElem) {
             focusWindow(el);
-            windowElem.className += ' window-max';
+            windowElem.classList.add('window-max');
         } else {
-            el.className = el.className.replace('window-max', '');
+            el.classList.remove('window-max');
             defocusWindow(el)
         }
     });
@@ -197,11 +221,11 @@ minButtonElems.forEach((el) => {
 function minimizeWindow(button) {
     // Swap button visibility
     maxButtonElems.forEach((el) => {
-        if (el.dataset.parent == button.dataset.parent) {
+        if (el.dataset.parent == button.dataset.parent && !compactWindow) {
             el.className = 'window-max window-button';
         }
     });
-    button.className += ' window-button-hidden';
+    button.classList.add('window-button-hidden');
 
     // Adjust styles
     const windowElem = document.getElementById(button.dataset.parent);
@@ -217,42 +241,34 @@ toTaskbarButtonElems.forEach((toTaskbarButton) => {
 
 function reduceToTaskbar(button) {
     const windowElem = document.getElementById(button.dataset.parent);
-    if (windowElem.classList.contains('window-max')) {
-        windowElem.className = 'window glow draggable window-max window-in-taskbar';
-    } else {
-        windowElem.className = 'window glow draggable window-in-taskbar';
-    }
-
-    taskbarItems.forEach((taskbarItem) => {
-        if (!taskbarItem.classList.contains('taskbar-closed')) {
-            taskbarItem.className = 'taskbar-item';
-        }
-    });
+    const taskbarItem = document.querySelector(`.taskbar-item[data-parent=${button.dataset.parent}`);
+    windowElem.classList.add('window-in-taskbar');
+    taskbarItem.className = 'taskbar-item';
 }
 
 // Window Dragging
 document.querySelectorAll('.window-header').forEach(header => {
-    const windowEl = header.closest('.window');
+    const windowElem = header.closest('.window');
     let offsetX = 0, offsetY = 0, isDragging = false;
 
     header.addEventListener('pointerdown', e => {
         if (e.target.closest('.window-button')) return;
-        if (!e.target.closest('.window').className.includes('draggable')) return;
-        switchWindow(windowEl.id);
+        if (!e.target.closest('.window').classList.contains('draggable')) return;
+        switchWindow(windowElem.id);
 
         isDragging = true;
-        const rect = windowEl.getBoundingClientRect();
+        const rect = windowElem.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
         offsetY = e.clientY - rect.top;
 
-        windowEl.style.position = 'absolute';
+        windowElem.style.position = 'absolute';
     });
 
     document.addEventListener('pointermove', e => {
         if (!isDragging) return;
         e.preventDefault();
-        windowEl.style.left = `${e.clientX - offsetX}px`;
-        windowEl.style.top = `${e.clientY - offsetY}px`;
+        windowElem.style.left = `${e.clientX - offsetX}px`;
+        windowElem.style.top = `${e.clientY - offsetY}px`;
     });
 
     document.addEventListener('pointerup', () => {
@@ -265,11 +281,6 @@ const privacyButtons = document.querySelectorAll('.privacy-button');
 privacyButtons.forEach((button) => {
     button.addEventListener('click', function () {
         const privacyPolicy = document.getElementById(button.dataset.toggleTarget)
-
-        if (privacyPolicy.classList.contains('privacy-policy-hidden')) {
-            privacyPolicy.classList = 'privacy-policy';
-        } else {
-            privacyPolicy.className = 'privacy-policy privacy-policy-hidden';
-        }
+        privacyPolicy.classList.toggle('privacy-policy-hidden');
     })
 });
