@@ -126,47 +126,10 @@ windowElems.forEach((windowElem) => {
 });
 
 
-function positionWindow(windowElem) {
-    // Only position non-maximized windows
-    if (windowElem.classList.contains('window-max')) return;
-
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-
-    // Measure size (fallback to offsetWidth/Height)
-    const rect = windowElem.getBoundingClientRect();
-    const ww = rect.width || windowElem.offsetWidth;
-    const wh = rect.height || windowElem.offsetHeight;
-
-    // small random offset range in px
-    const offsetRange = 75; // +/- 40px
-    const rnd = (n) => Math.floor(Math.random() * (2 * n + 1)) - n;
-
-    // center the window then add random offset
-    let left = Math.round((vw - ww) / 2) + rnd(offsetRange);
-    let top = Math.round((vh - wh) / 2) + rnd(offsetRange);
-
-    // keep inside viewport with small margin
-    left = Math.max(8, Math.min(left, vw - ww - 8));
-    top = Math.max(8, Math.min(top, vh - wh - 8));
-
-    windowElem.style.left = `${left}px`;
-    windowElem.style.top = `${top}px`;
-}
-
 function focusWindow(windowElem) {
-    // detect if we're opening from closed/taskbar state so we can reposition
-    const wasClosedOrInTaskbar = windowElem.classList.contains('window-closed') || windowElem.classList.contains('window-in-taskbar');
-
     windowElem.classList.add('window-active');
     windowElem.classList.remove('window-in-taskbar');
     windowElem.classList.remove('window-closed');
-
-    // If the window was just opened (closed or in-taskbar) and we are not in compact layout,
-    // give it a small random offset so it appears slightly different each time.
-    if (!compactWindow && wasClosedOrInTaskbar) {
-        positionWindow(windowElem);
-    }
 
     // Find paired taskbar and focus it
     const taskbarElem = document.getElementById(`${windowElem.id}-taskbar`);
@@ -298,7 +261,7 @@ document.querySelectorAll('.window-header').forEach(header => {
         offsetX = e.clientX - rect.left;
         offsetY = e.clientY - rect.top;
 
-        // windowElem.style.position = 'absolute';
+        windowElem.style.position = 'absolute';
     });
 
     document.addEventListener('pointermove', e => {
@@ -320,17 +283,4 @@ privacyButtons.forEach((button) => {
         const privacyPolicy = document.getElementById(button.dataset.toggleTarget)
         privacyPolicy.classList.toggle('privacy-policy-hidden');
     })
-});
-
-// Home Button
-document.getElementById('taskbar-home').addEventListener('click', function() {
-    // Close all windows and reopen welcome.txt
-    console.log('home');
-    windowElems.forEach((windowElem) => {
-        if (windowElem.id == 'welcome-window') {
-            switchWindow(windowElem.id)
-        } else {
-            closeWindow(windowElem.id);
-        }
-    });
 });
