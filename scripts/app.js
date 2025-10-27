@@ -113,14 +113,14 @@ function toggleMenu() {
 
 // Window Switching Logic
 taskbarItems.forEach((taskbarItem) => {
-    taskbarItem.addEventListener('click', function (e) {
+    taskbarItem.addEventListener('click', function () {
         switchWindow(taskbarItem.dataset.parent);
     });
 });
 
 windowElems.forEach((windowElem) => {
     windowElem.addEventListener('click', function (e) {
-        if (e.target.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
+        if (e.currentTarget.classList.contains('window-button') || e.target.classList.contains('window-button-img')) return;
         switchWindow(windowElem.id);
     });
 });
@@ -169,13 +169,13 @@ function switchWindow(windowID) {
 
 // Close Windows
 closeButtonElems.forEach((el) => {
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function(e) {
+        e.stopPropagation();
         closeWindow(el.dataset.parent);
     });
 });
 
 function closeWindow(windowID) {
-    console.log(windowID);
     const windowElem = document.getElementById(windowID);
     const taskbarElem = document.querySelector(`.taskbar-item[data-parent=${windowID}]`);
     windowElem.className = 'window glow draggable window-closed';
@@ -184,7 +184,8 @@ function closeWindow(windowID) {
 
 // Maximize Windows
 maxButtonElems.forEach((el) => {
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function (e) {
+        e.stopPropagation();
         maximizeWindow(el);
     });
 });
@@ -213,7 +214,8 @@ function maximizeWindow(button) {
 
 // Minimize Windows
 minButtonElems.forEach((el) => {
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function (e) {
+        e.stopPropagation();
         minimizeWindow(el)
     })
 });
@@ -234,7 +236,8 @@ function minimizeWindow(button) {
 
 // Minimize to Taskbar
 toTaskbarButtonElems.forEach((toTaskbarButton) => {
-    toTaskbarButton.addEventListener('click', function () {
+    toTaskbarButton.addEventListener('click', function (e) {
+        e.stopPropagation();
         reduceToTaskbar(toTaskbarButton);
     });
 });
