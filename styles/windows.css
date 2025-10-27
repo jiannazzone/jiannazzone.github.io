@@ -8,8 +8,7 @@
     height: 66%;
     width: 66%;
     max-width: 1000px;
-    scale: 1.0;
-    transition: none !important;
+    /* transition: left, top 0s; */
     will-change: transform, left, top;
     will-change: display;
 }
@@ -29,6 +28,8 @@
 
 .window-in-taskbar, .window-closed {
     display: none;
+    height: 0;
+    opacity: 0;
 }
 
 .window-header {

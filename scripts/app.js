@@ -147,6 +147,9 @@ function defocusWindow(windowElem) {
 } //defocusWindow
 
 function switchWindow(windowID) {
+    if (windowID == null) {
+        return;
+    }
     if (compactWindow) {
         windowElems.forEach((windowElem) => {
             if (windowElem.id == windowID) {
