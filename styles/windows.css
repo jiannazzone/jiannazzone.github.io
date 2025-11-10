@@ -11,6 +11,7 @@
     /* transition: left, top 0s; */
     will-change: transform, left, top;
     will-change: display;
+    transition: none;
 }
 
 .window-active {
