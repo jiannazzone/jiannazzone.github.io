@@ -25,6 +25,7 @@
         <div class="menu glow menu-hidden" id="start-menu">
             <div class="menu-section">
                 <div class="menu-section-header">iOS Apps</div>
+                <div class="menu-item" data-parent="qrv-window">QRV</div>
                 <div class="menu-item" data-parent="calcusplit-window">CalcuSplit</div>
                 <div class="menu-item" data-parent="calcurun-window">CalcuRun</div>
                 <div class="menu-item" data-parent="lettercode-window">LetterCode</div>
@@ -89,6 +90,103 @@
             </div>
         </div>
         <!-- End Welcome -->
+
+         <!-- QRV -->
+        <div class="window glow draggable window-closed" id="qrv-window">
+            <div class="window-header" data-parent="qrv-window">
+                <div class="window-title">
+                    qrv.txt
+                </div>
+                <div class="window-button-container">
+                    <div class="window-taskbar window-button" data-parent="qrv-window">
+                        <img class="window-button-img" src="assets/site-assets/to-taskbar.svg">
+                    </div>
+                    <div class="window-min window-button window-button-hidden" data-parent="qrv-window">
+                        <img class="window-button-img" src="assets/site-assets/minimize.svg">
+                    </div>
+                    <div class="window-max window-button" data-parent="qrv-window">
+                        <img class="window-button-img" src="assets/site-assets/maximize.svg">
+                    </div>
+                    <div class="window-closer window-button" data-parent="qrv-window">
+                        <img class="window-button-img" src="assets/site-assets/close-x.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+
+                <!-- App Details -->
+                <h2><a class="keyword glow" href="" target="_blank"
+                        rel="noopener noreferrer">QRV</a> if the best ham radio multitool around.
+                </h2>
+                <span>With QRV, you can:</span>
+                <ul>
+                    <li>Get live spots from your location.</li>
+                    <li>View band conditions.</li>
+                    <li>Lookup call signs from QRZ or HamQTH.</li>
+                    <li>Check reference material and make quick antenna calculations.</li>
+                </ul>
+                <h2 class="app-store-link"><a class="keyword glow"
+                        href="#" target="_blank"
+                        rel="noopener noreferrer">Get it on the iOS App Store!</a></h2>
+
+                <!-- Screenshots -->
+                <div class="app-screenshot-container">
+                    <img class="app-screenshot glow" src="assets/qrv/qrv1.png" />
+                    <img class="app-screenshot glow" src="assets/qrv/qrv2.png" />
+                    <img class="app-screenshot glow" src="assets/qrv/qrv3.png" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <h2><a class="keyword glow privacy-button" data-toggle-target="qrv-privacy-policy"
+                        href="#">Privacy Policy</a></h2>
+                <div class="privacy-policy privacy-policy-hidden" id="qrv-privacy-policy">
+                    <p>Joseph Iannazzone built the QRV app as a Free app with In-App Purchases. This service is
+                        provided by Joseph Iannazzone at no cost and is intended for use as is. This page is used to
+                        inform
+                        visitors regarding my policies with the collection, use, and disclosure of Personal Information
+                        if
+                        anyone decided to use my Service. If you choose to use my Service, then you agree to the
+                        collection
+                        and use of information in relation to this policy.</p>
+
+                    <h4>Information Collection and Use</h4>
+                    <p>No information is collected during the use of this app. All calculations, storage, and other
+                        related
+                        logic happens on the device, although data is fetched from internet sources. If you delete the app, your data is deleted in the manner dictated
+                        by
+                        your device. If you choose to purchase QRV Premium, data will be written to your device's
+                        storage indicating as such. If you choose to Restore Purchase, the device will contact Apple's
+                        servers to authenticate the previous purchase.</p>
+
+                    <h4>Links to Other Sites</h4>
+
+                    <p>This Service may contain links to other sites. If you click on a third-party link, you will be
+                        directed to that site. Note that these external sites are not operated by me. Therefore, I
+                        strongly
+                        advise you to review the Privacy Policy of these websites. I have no control over and assume no
+                        responsibility for the content, privacy policies, or practices of any third-party sites or
+                        services.</p>
+
+                    <h4>Changes to This Privacy Policy</h4>
+                    <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page
+                        periodically for any changes. I will notify you of any changes by posting the new Privacy Policy
+                        on
+                        this page.</p>
+
+                    <h4>Contact Us</h4>
+                    <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me
+                        at
+                        <a class="keyword glow" href="mailto:me@k2cat.xyz">me@k2cat.xyz.</a>
+                    </p>
+
+                    <p>This privacy policy page was created at Privacy Policy Template and modified/generated by App
+                        Privacy Policy Generator. Effective as of 2025-11-25.</p>
+                </div>
+                <!-- End Privacy Policy -->
+            </div>
+        </div>
+        <!-- End QRV -->
+
 
         <!-- CalcuSplit -->
         <div class="window glow draggable window-closed" id="calcusplit-window">
@@ -517,6 +615,10 @@
             </a>
             <div class="taskbar-item taskbar-active" id="welcome-window-taskbar" data-parent="welcome-window">
                 welcome.txt
+            </div>
+
+            <div class="taskbar-item taskbar-active" id="qrv-window-taskbar" data-parent="qrv-window">
+                qrv.txt
             </div>
 
             <div class="taskbar-item taskbar-closed" id="calcusplit-window-taskbar" data-parent="calcusplit-window">
