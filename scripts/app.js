@@ -69,6 +69,11 @@ function parseURL() {
         maximizeWindow(document.querySelector('.window-max[data-parent=welcome-window'));
     }
 
+    if (destinations.length == 1) {
+        switchWindow(`${destinations[0]}-window`);
+        maximizeWindow(document.querySelector(`.window-max[data-parent=${destinations[0]}-window`));
+    }
+
     let delay = 500;
     let count = 0;
     let skipRemaining = false;
