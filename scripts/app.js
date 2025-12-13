@@ -33,11 +33,11 @@ onResize(function() {
         compactWindow = true;
     } else {
         if (!compactWindow) return;
-        minButtonElems.forEach((button) => {
-            button.classList = button.classList.remove('window-button-hidden');
+        maxButtonElems.forEach((button) => {
+            button.classList.remove('window-button-hidden');
         });
         toTaskbarButtonElems.forEach((button) => {
-            button.classList = button.classList.remove('window-button-hidden');
+            button.classList.remove('window-button-hidden');
         });
         compactWindow = false
     }
@@ -94,7 +94,8 @@ parseURL();
 
 // Menu Selection Logic
 menuItems.forEach((menuItem) => {
-    menuItem.addEventListener('click', function () {
+    menuItem.addEventListener('click', function (e) {
+        e.stopPropagation();
         switchWindow(menuItem.dataset.parent);
         toggleMenu();
     });
@@ -104,7 +105,7 @@ menuItems.forEach((menuItem) => {
 const menuIcon = document.getElementById('menu-icon')
 menuIcon.addEventListener('click', toggleMenu);
 document.body.addEventListener('click', function (e) {
-    if (menuIcon.className != 'menu-icon-active') return;
+    if (!menuIcon.classList.contains('menu-icon-active')) return;
 
     if (e.target != menuIcon) {
         toggleMenu();
@@ -114,6 +115,7 @@ document.body.addEventListener('click', function (e) {
 function toggleMenu() {
     const menuElem = document.getElementById('start-menu');
     menuElem.classList.toggle('menu-hidden');
+    menuIcon.classList.toggle('menu-icon-active');
 }
 
 // Window Switching Logic

@@ -1,9 +1,8 @@
 .window {
-    display: block;
+    display: flex;
     position: absolute;
     border: var(--crt-amber) 5px solid;
     background: var(--crt-bg);
-    display: flex;
     flex-direction: column;
     height: 66%;
     width: 66%;
